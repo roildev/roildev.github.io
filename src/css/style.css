@@ -31,10 +31,10 @@ h1.title {
   margin-bottom: 20px;
   text-align: center;
 }
-section.main {
+.main {
   margin: 0;
 }
-section.main .header {
+.main .header {
   position: fixed;
   display: block;
   margin: 0;
@@ -44,34 +44,30 @@ section.main .header {
   background-color: #FFCDC1;
   z-index: 10;
 }
-section.main .header .logo {
+.main .header .logo {
   padding: 10px 20px 20px 20px;
   margin: 5px 0px 5px 20px;
   width: 150px;
   background-color: #CB6B6A;
   border-radius: 50%;
 }
-section.main .header .logo img {
+.main .header .logo img {
   width: 100%;
 }
-section.main .main-body {
+.main-body {
   padding-top: 100px;
 }
-section.main .main-body .wrap-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.main-body .wrap-flex {
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-section.main .main-img {
+.main-img {
   width: 100%;
 }
-section.main .main-img img {
+.main-img img {
   width: 100%;
 }
-section.main .phone-form {
+.main .phone-form {
   position: absolute;
   background-image: url('../images/main/phoneForm.png');
   background-size: 100% 100%;
@@ -80,62 +76,49 @@ section.main .phone-form {
   top: 0px;
   z-index: 11;
 }
-section.main .phone-form__call {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-style: italic;
-  padding: 10px;
-}
-section.main .phone-form__call a {
-  line-height: 1;
-  font-size: 24px;
-  color: #fff;
-  text-decoration: none;
-}
-section.main .phone-form__call a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-section.main .phone-form__heading {
+.main .phone-form__heading {
   padding: 40px 40px 10px 40px;
 }
-section.main .phone-form__heading span {
+.main .phone-form__heading span {
   font-size: 26px;
   color: #fff;
   line-height: 20px;
   text-align: center;
 }
-section.main .phone-form__heading span strong {
+.main .phone-form__heading span strong {
   margin-top: 10px;
   display: block;
 }
-section.main .phone-form__input {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.main .phone-form__call {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
+  font-style: italic;
+  padding: 10px;
+}
+.main .phone-form__call a {
+  line-height: 1;
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+.main .phone-form__call a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.main .phone-form__input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 0 20px 40px 100px;
 }
-section.main .phone-form__input input {
+.main .phone-form__input input {
   display: block;
   margin-top: 15px;
   font-size: 12px;
 }
-section.main .phone-form__input button {
+.main .phone-form__input button {
   background-color: #fff;
   border: none;
   margin: 40px 0 10px 0;
@@ -148,21 +131,11 @@ section.main .phone-form__input button {
   margin: 80px;
 }
 .servis__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   width: 100%;
 }
 .servis__content .circle-big {
@@ -182,9 +155,7 @@ section.main .phone-form__input button {
   background-color: #97dcdc;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-10px, -10px);
-          transform: translate(-10px, -10px);
-  -webkit-transition: ease-in 0.3s;
+  transform: translate(-10px, -10px);
   transition: ease-in 0.3s;
 }
 .servis__content__img {
@@ -215,25 +186,14 @@ section.main .phone-form__input button {
   color: white;
 }
 .calc .panel-wait {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .calc .panel-collapse {
   background-color: #fdf5d1;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
 }
 .calc .panel-collapse input {
@@ -247,11 +207,8 @@ section.main .phone-form__input button {
 .calc .panel-collapse .choice {
   margin: 20px 0 20px 0;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 .calc .panel-collapse .choice span {
   font-weight: 900;
@@ -270,8 +227,7 @@ section.main .phone-form__input button {
 }
 .calc .panel-collapse .check-switch:checked + .switch-label .switch-switch {
   right: 0;
-  -webkit-transform: translate(70px, 0px);
-          transform: translate(70px, 0px);
+  transform: translate(70px, 0px);
 }
 .calc .panel-collapse .check-switch:checked + .switch-label .switch-inner {
   margin-left: 0;
@@ -288,7 +244,6 @@ section.main .phone-form__input button {
   display: block;
   height: 100%;
   width: 200%;
-  -webkit-transition: all 0.3s ease-in 0s;
   transition: all 0.3s ease-in 0s;
 }
 .calc .panel-collapse .onoffswitch label.switch-label span.switch-switch {
@@ -301,8 +256,6 @@ section.main .phone-form__input button {
   background-color: #ff6666;
   left: 0;
   z-index: 15;
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
-  -webkit-transition: all 0.3s ease-in 0s;
+  transform: translate(0px, 0px);
   transition: all 0.3s ease-in 0s;
 }
