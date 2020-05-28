@@ -192,6 +192,7 @@ h1.title {
 .calc .panel-collapse {
   background-color: #fdf5d1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
@@ -200,9 +201,13 @@ h1.title {
   background-color: #ffcccc;
   border-radius: 10px;
 }
+.calc .panel-collapse .season-wrap {
+  display: flex;
+  align-items: center;
+}
 .calc .panel-collapse .distance {
   display: block;
-  margin: 10px 0 10px 0;
+  margin: 10px  0;
 }
 .calc .panel-collapse .choice {
   margin: 20px 0 20px 0;
@@ -210,9 +215,16 @@ h1.title {
   display: flex;
   justify-content: space-around;
 }
-.calc .panel-collapse .choice span {
+.calc .panel-collapse .choice .time {
+  display: flex;
+  justify-content: space-around;
+}
+.calc .panel-collapse .choice .time span {
   font-weight: 900;
   font-size: 20px;
+}
+.calc .panel-collapse .quantity {
+  margin: 10px 0;
 }
 .calc .panel-collapse .img {
   margin: 20px;
@@ -255,7 +267,7 @@ h1.title {
   border-radius: 50%;
   background-color: #ff6666;
   left: 0;
-  z-index: 15;
+  z-index: 5;
   transform: translate(0px, 0px);
   transition: all 0.3s ease-in 0s;
 }
