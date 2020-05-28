@@ -235,6 +235,27 @@ h1.title {
 .calc .panel-collapse .quantity {
   margin: 10px 0;
 }
+.calc .panel-collapse .age {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.calc .panel-collapse .age span {
+  margin: 10px;
+  text-align: center;
+}
+.calc .panel-collapse .amount__children {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10px;
+}
+.calc .panel-collapse .amount__children span {
+  margin: 10px;
+  text-align: center;
+}
 .calc .panel-collapse .img {
   margin: 20px;
   width: 50px;
@@ -279,4 +300,19 @@ h1.title {
   z-index: 5;
   transform: translate(0px, 0px);
   transition: all 0.3s ease-in 0s;
+}
+.calc .calc-img {
+  margin: 90px 0 0 60px ;
+}
+.calc .calc-img img {
+  width: 100%;
+}
+.calc .calc-img .total {
+  margin: 40px 0 0 20px;
+}
+.calc .calc-img .total input {
+  border: none;
+  background-color: #ffcccc;
+  border-radius: 10px;
+  margin: 0 0 0 15px;
 }
