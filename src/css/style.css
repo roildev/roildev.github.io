@@ -28,7 +28,7 @@ body {
   font-style: normal;
 }
 h1.title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 .main {
@@ -177,10 +177,13 @@ h1.title {
   font-weight: 700;
   display: block;
 }
+.calc .panel-group {
+  border-radius: 10px;
+  overflow: hidden;
+}
 .calc .panel-heading {
   padding: 14px ;
   background-color: #993333;
-  border-radius: 10px;
 }
 .calc .panel-heading .head-span {
   color: white;
@@ -195,7 +198,7 @@ h1.title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  padding: 10px 0;
 }
 .calc .panel-collapse input {
   background-color: #ffcccc;
@@ -215,13 +218,19 @@ h1.title {
   display: flex;
   justify-content: space-around;
 }
-.calc .panel-collapse .choice .time {
-  display: flex;
-  justify-content: space-around;
-}
-.calc .panel-collapse .choice .time span {
+.calc .panel-collapse .choice span {
   font-weight: 900;
   font-size: 20px;
+}
+.calc .panel-collapse .time {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.calc .panel-collapse .time span {
+  margin: 10px;
+  text-align: center;
 }
 .calc .panel-collapse .quantity {
   margin: 10px 0;
