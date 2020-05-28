@@ -1,1 +1,4 @@
-const x = 0;
+"use strict";
+$(document).ready(function() {
+    $('.slider').slick();
+});
