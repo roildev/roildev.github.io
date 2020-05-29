@@ -329,3 +329,36 @@ h1.title {
   border-radius: 10px;
   margin: 0 0 0 15px;
 }
+footer {
+  background-color: #FFCDC1;
+}
+footer .container .row {
+  display: flex;
+  justify-content: space-around;
+}
+footer .container .row .contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .container .row .contacts i {
+  color: #ff6666;
+}
+footer .container .row .rent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .container .row .question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .container .futer-logo {
+  display: flex;
+  align-items: center;
+  width: 150px;
+}
+footer .container .futer-logo img {
+  width: 100%;
+}
