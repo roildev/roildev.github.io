@@ -22,7 +22,14 @@
   font-weight: bold;
   font-style: italic;
 }
+html {
+  height: 100%;
+}
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: flex-start;
   font-family: 'Montserrat';
   font-weight: normal;
   font-style: normal;
@@ -330,6 +337,7 @@ h1.title {
   margin: 0 0 0 15px;
 }
 footer {
+  margin-top: auto;
   background-color: #FFCDC1;
 }
 footer .container .row {
@@ -341,23 +349,74 @@ footer .container .row .contacts {
   flex-direction: column;
   align-items: center;
 }
-footer .container .row .contacts i {
-  color: #ff6666;
+footer .container .row .contacts h4 {
+  margin: 15px;
+}
+footer .container .row .contacts__logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 13px;
+}
+footer .container .row .contacts__logos__item {
+  margin: 2px;
+  width: 20px;
+}
+footer .container .row .contacts__logos__item svg {
+  width: 100%;
+  height: 100%;
+}
+footer .container .row .contacts__logos a {
+  color: #993333;
+  margin-left: 4px;
+}
+footer .container .row .contacts a {
+  color: #993333;
+}
+footer .container .row .contacts .alicante {
+  margin-top: 15px;
+}
+footer .container .row .contacts .torrevieja {
+  margin-bottom: 15px;
 }
 footer .container .row .rent {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+footer .container .row .rent h4 {
+  margin: 15px;
+}
+footer .container .row .rent span {
+  margin: 15px;
+}
+footer .container .row .rent a {
+  color: #993333;
+}
 footer .container .row .question {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+footer .container .row .question h4 {
+  margin: 15px;
+}
+footer .container .row .question input {
+  border: none;
+  border-radius: 7px;
+  padding: 25px;
+}
+footer .container .row .question button {
+  border: none;
+  background-color: #993333;
+  color: white;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 7px 59px;
+}
 footer .container .futer-logo {
-  display: flex;
-  align-items: center;
-  width: 150px;
+  width: 130px;
+  margin: 20px 0;
 }
 footer .container .futer-logo img {
   width: 100%;
