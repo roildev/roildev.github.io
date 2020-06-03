@@ -210,6 +210,8 @@ h1.title {
 .calc .panel-collapse input {
   background-color: #ffcccc;
   border-radius: 10px;
+  border: none;
+  outline: none;
 }
 .calc .panel-collapse .season-wrap {
   display: flex;
@@ -232,8 +234,9 @@ h1.title {
 .calc .panel-collapse .time {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+  padding: 0px 30px;
 }
 .calc .panel-collapse .time span {
   margin: 10px;
@@ -245,8 +248,9 @@ h1.title {
 .calc .panel-collapse .age {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+  padding: 0px 30px;
 }
 .calc .panel-collapse .age span {
   margin: 10px;
@@ -255,9 +259,10 @@ h1.title {
 .calc .panel-collapse .amount__children {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   margin-top: 10px;
+  padding: 0px 30px;
 }
 .calc .panel-collapse .amount__children span {
   margin: 10px;
@@ -335,6 +340,67 @@ h1.title {
   background-color: #ffcccc;
   border-radius: 10px;
   margin: 0 0 0 15px;
+}
+.wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0px 100px;
+}
+.wrapper .slider {
+  padding: 0px 60px;
+  position: relative;
+}
+.wrapper .slider__item:focus {
+  outline: none;
+}
+.wrapper .slider .slick-prev {
+  left: 0;
+  background: url('../images/slider/previous.svg') 0 0% no-repeat;
+  border: none;
+  outline: none;
+}
+.wrapper .slider .slick-next {
+  right: 0;
+  background: url('../images/slider/right-arrow.svg') 0 0% no-repeat;
+  border: none;
+  outline: none;
+}
+.wrapper .slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  margin: -30px 0 0 0;
+  z-index: 10;
+  font-size: 0;
+  width: 30px;
+  height: 60px;
+}
+.wrapper .slider .slick-list {
+  overflow: hidden;
+}
+.wrapper .slider .slick-list .slick-track {
+  display: flex;
+}
+.wrapper .slider .slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .slider .slick-dots li {
+  list-style: none;
+  margin: 0px 10px;
+}
+.wrapper .slider .slick-dots li button {
+  font-size: 0;
+  width: 10px;
+  height: 13px;
+  background-color: #993333;
+  border-radius: 50%;
+  border: 1px solid #993333;
+  outline: none;
+}
+.wrapper .slider .slick-dots .slick-active button {
+  background-color: transparent;
+  border: 1px solid #993333;
 }
 footer {
   margin-top: auto;
