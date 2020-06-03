@@ -470,7 +470,12 @@ footer .container .row .question {
 footer .container .row .question h4 {
   margin: 15px;
 }
-footer .container .row .question input {
+footer .container .row .question .footer-question-number {
+  border: none;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+footer .container .row .question .footer-question-input {
   border: none;
   border-radius: 7px;
   padding: 25px;
