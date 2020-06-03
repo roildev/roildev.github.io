@@ -3,9 +3,9 @@ $(document).ready(function() {
     $('.slider').slick({
         arrows: true,
         dots: true,
-        speed: 1000,
+        speed: 2000,
         autoplay: true,
-        autoplaySpeed: 1500,
+        autoplaySpeed: 5000,
         pauseOnFocus: true,
         pauseOnHover: true,
         pauseOnDotsHover: true,
