@@ -40,7 +40,11 @@
                             <input class="form-control" type="text" placeholder="Город прилёта">
                             <input class="form-control" type="text" placeholder="Место назначения">
                             <input class="form-control" type="text" placeholder="Ваш телефон">
-                            <button class="phone-form__btn">ЗАКАЗАТЬ</button>
+                            <div class="phone-form__button">
+
+                                <button class="phone-form__btn">ЗАКАЗАТЬ</button>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,9 +181,9 @@
                                     <input class="amount-of-children" type="text">
                                 </div>
                             </div>
-                            <div class="btn__acordion">
-                                <button>Заказать со скидкой</button>
-                            </div>
+                            <a href="#popup">
+                                <button class="btn__acordion">Заказать со скидкой</button>
+                            </a>
                         </div>
 
                     </div>
@@ -247,7 +251,7 @@
                     </div>
                     <span class="alicante">Аликанте</span>
                     <span class="torrevieja">Торревьеха</span>
-                    <a href="#">Позвоните мне</a>
+                    <a href="#popup">Позвоните мне</a>
                 </div>
                 <div class="rent">
                     <h4>
@@ -256,7 +260,7 @@
                     <span>
                         999999999
                     </span>
-                    <a href="#">Позвоните мне</a>
+                    <a href="#modal">Позвоните мне</a>
                 </div>
                 <div class="question">
                     <h4>
@@ -279,8 +283,52 @@
 
     <!-- модальные окна -->
 
-    <section class="order-taxi"></section>
-    <section class="rent-car"></section>
+    <div id="popup" class="popup">
+        <a href="#header" class="popup__area"></a>
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#header" class="popup__close close-popup">X</a>
+                <div class="popup__title">Заказать трансфер</div>
+                <div class="popup__text">
+                    <input type="text" placeholder="Город прилёта">
+                    <input type="text" placeholder="Место назначения">
+                    <input type="text" placeholder="Ваш телефон">
+                    <input type="text" placeholder="Ваше имя">
+                    <button>Заказать</button>
+                    <span>
+                       Спасибо!<br>
+                       Мы с вами свяжемся 
+                   </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <section class="rent-car">
+        <div id="modal" class="popup">
+            <a href="#header" class="popup__area"></a>
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup">X</a>
+                    <div class="popup__title">Арендовать авто</div>
+                    <div class="popup__text">
+                        <input type="text" placeholder="Город">
+                        <input type="text" placeholder="Колличество суток">
+                        <input type="text" placeholder="Ваш телефон">
+                        <input type="text" placeholder="Ваше имя">
+                        <button>Узнать цену</button>
+                        <span>
+                           Спасибо!<br>
+                           Мы с вами свяжемся 
+                       </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </body>
 
 </html>

@@ -130,12 +130,15 @@ h1.title{
 				margin-top: 15px;
 				font-size: 12px;
 			}
-			button {
+			.phone-form__button {
+				
+			   .phone-form__btn {
 				background-color: #fff;
 				border: none;
 				margin: 40px 0 10px 0;
-				width: 70%;
+				width: 100%;
 				border-radius: 10px;
+			    }
 			}
 	    }
  	}
@@ -375,18 +378,13 @@ h1.title{
 	//   кнопка акордиона
 
 	.btn__acordion {
-		
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		button {
-			width: 100%;
-			margin: 15px 0;
-			padding: 14px;
-			background-color: #993333;
-			border-radius: 10px;
-			color: white;
-		}
+		border: none;
+		width: 100%;
+		margin: 15px 0;
+		padding: 14px;
+		background-color: #993333;
+		border-radius: 10px;
+		color: white;
 			
 	}
 	 .calc-img {
@@ -569,5 +567,167 @@ footer {
  	}
 }
 
+//модальное окно заказать трансфер
 
+	.popup {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.9);
+		top: 0;
+		left: 0;
+		z-index: 990;
+		opacity: 0;
+		visibility: hidden;	
+		overflow-y: auto;
+		overflow-x: hidden;
+		transition: all 0.8s ease 0s;	
+		&__body {
+			min-height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			padding: 30px 10px;
+			.popup__content {
+				border-radius: 10px;
+				background-color: #ffcccc;
+				color: #993333;
+				max-width: 400px;
+				padding: 30px;
+				position: relative;
+				transition: all 0.8s ease 0s;
+				opacity: 0;
+				transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+				.popup__close {
+					position: absolute;
+					right: 10px;
+					top: 10px;
+					font-size: 20px;
+					color: #993333;
+					text-decoration: none;
+				}	
+				.popup__title {
+					font-size: 30px;
+					margin: 0 0 1em 0;
+				}
+				.popup__text {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+			        justify-content: center;
+			        text-align: center;					
+					input {
+						border-radius: 5px;
+						border: none;
+						padding: 5px 4px;
+						margin: 0 0 10px 0;
+					}
+					button {
+						border-radius: 5px;
+						border: none;
+						background-color: #993333;
+                        color: white;
+	 				}
+				}
+			}
+		}
+		.popup__area {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+	.popup:target {
+		opacity: 1;
+		visibility: visible;
+		.popup__content {
+			transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
+			opacity: 1;
+		}
+		
+	}
+
+.modal {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.9);
+	top: 0;
+	left: 0;
+	z-index: 990;
+	opacity: 0;
+	visibility: hidden;	
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: all 0.8s ease 0s;
+	.popup__body {
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 30px 10px;
+		.popup__content {
+			border-radius: 10px;
+			background-color: #ffcccc;
+			color: #993333;
+			max-width: 400px;
+			padding: 30px;
+			position: relative;
+			transition: all 0.8s ease 0s;
+			opacity: 0;
+			transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+			.popup__close {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				font-size: 20px;
+				color: #993333;
+				text-decoration: none;
+			}
+			.popup__title {
+				font-size: 30px;
+				margin: 0 0 1em 0;
+			}
+			.popup__text {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-align: center;					
+				input {
+					border-radius: 5px;
+					border: none;
+					padding: 5px 4px;
+					margin: 0 0 10px 0;
+				}
+				button {
+					border-radius: 5px;
+					border: none;
+					background-color: #993333;
+					color: white;
+				}
+			}
+		}		
+	}
+	.popup__area {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+.popup:target {
+	opacity: 1;
+	visibility: visible;
+	.popup__content {
+		transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
+		opacity: 1;
+	}
+	
+}
 
