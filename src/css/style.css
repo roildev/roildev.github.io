@@ -187,7 +187,21 @@ h1.title {
   left: 50%;
   transform: translate(20px, 9px);
 }
-.servis__content__img {
+.servis__content .servis__content__tie__img {
+  width: 160px;
+  height: 150px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  color: #4e4b4b;
+  z-index: 2;
+}
+.servis__content .servis__content__tie__img img {
+  position: relative;
+  width: 100%;
+}
+.servis__content .servis__content__plane__img {
   width: 160px;
   height: 155px;
   display: block;
@@ -196,7 +210,21 @@ h1.title {
   color: #4e4b4b;
   z-index: 2;
 }
-.servis__content__img img {
+.servis__content .servis__content__plane__img img {
+  position: relative;
+  width: 100%;
+}
+.servis__content .servis__content__car__img {
+  width: 160px;
+  height: 145px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  color: #4e4b4b;
+  z-index: 2;
+}
+.servis__content .servis__content__car__img img {
   position: relative;
   width: 100%;
 }
@@ -434,7 +462,7 @@ footer .container .row {
 footer .container .row .contacts {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 footer .container .row .contacts h4 {
   margin: 15px;
@@ -469,7 +497,7 @@ footer .container .row .contacts .torrevieja {
 footer .container .row .rent {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 footer .container .row .rent h4 {
   margin: 15px;
@@ -478,6 +506,7 @@ footer .container .row .rent span {
   margin: 15px;
 }
 footer .container .row .rent a {
+  margin-left: 13px;
   color: #993333;
 }
 footer .container .row .question {
@@ -489,6 +518,7 @@ footer .container .row .question h4 {
   margin: 15px;
 }
 footer .container .row .question .footer-question-number {
+  margin-right: 45px;
   border: none;
   border-radius: 7px;
   margin-bottom: 10px;

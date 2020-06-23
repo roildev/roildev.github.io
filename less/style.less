@@ -199,12 +199,40 @@ h1.title{
 			left: 50%;
 			transform: translate(20px, 9px);
 		}
-		&__img {
+		.servis__content__tie__img {
+			width: 160px;
+			height: 150px;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 5px;
+			color: #4e4b4b;
+			z-index: 2;
+			img {
+				position: relative;
+				width: 100%;
+			}		  	
+		}
+		.servis__content__plane__img {
 			width: 160px;
 			height: 155px;
 			display: block;
 			margin-right: auto;
 			margin-left: auto;
+			color: #4e4b4b;
+			z-index: 2;
+			img {
+				position: relative;
+				width: 100%;
+			}		  	
+		}
+		.servis__content__car__img {
+			width: 160px;
+			height: 145px;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 10px;
 			color: #4e4b4b;
 			z-index: 2;
 			img {
@@ -483,7 +511,7 @@ footer {
 			.contacts{
 				display: flex;
 				flex-direction: column;
-				align-items: center;
+				align-items: start;
 				h4 {
 					margin: 15px;
 				}
@@ -518,7 +546,7 @@ footer {
 			.rent{
 				display: flex;
 				flex-direction: column;
-				align-items: center;
+				align-items: start;
 				h4 {
 					margin: 15px;
 				}
@@ -526,6 +554,7 @@ footer {
 					margin: 15px;
 				}
 				a{
+					margin-left: 13px;
 					color: #993333;
 				}
 			}
@@ -537,6 +566,7 @@ footer {
 					margin: 15px;
 				}
 				.footer-question-number {
+					margin-right: 45px;
 					border: none;
 					border-radius: 7px;
 					margin-bottom: 10px;
