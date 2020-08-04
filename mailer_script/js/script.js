@@ -7,7 +7,7 @@ $(document).ready(function() {
 			processData: false,
 			contentType: false
 		}).done(function() {
-			alert("Ready!");
+			alert("Ready?");
 		});
 		return false;
 	});
