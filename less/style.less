@@ -25,6 +25,57 @@
 	font-style: italic;	
 }
 
+// colours
+
+@header-footer: #062B48;
+@header-opasity: #062b4866 !important;
+@table-header: #062B48;
+@table-body: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(232,237,241,1) 100%);
+@text-dark: #1F1F1F;
+@text-light: #FFFFFF;
+@btn-light: #E8EDF1;
+@btn-dark: #0163D2;
+@link-light: #FFFFFF;
+
+
+// general classes
+
+.button-dark {
+    border: 1px solid @btn-dark;
+    width: 200px;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: @btn-dark;
+    border-radius: 5px;
+    color: @text-light;
+}
+
+.button-light {
+	border: 1px solid @btn-dark;
+    width: 200px;
+    margin: 15px 0;
+    padding: 10px;
+    background: @btn-light;
+    border-radius: 5px;
+    color: @btn-dark;
+}
+
+.input-normal {
+	height: 36px;
+    border-radius: 3px;
+    border: 1px solid #DBDBDB;
+    background-color: #ffffff;
+    width: 100%;
+    font-size: 12px;
+    padding: 5px 15px;
+    color: #3E3E3E;
+    margin: 5px 0;
+}
+
+
+
+// main settings
+
 html {
 	height: 100%;
 }
@@ -55,40 +106,43 @@ h1.title{
 		padding: 0;
 		width: 100%;
 		height: 80px;
-		background-color: #FFCDC1;
+		background-color: @header-footer;
 		z-index: 11;
+		transition: all 0.5s linear;
 		.logo {
 			padding: 10px 20px 20px 20px;
 			margin: 5px 0px 5px 20px;
 			width: 150px;
-			background-color: #CB6B6A;
+			background: @table-body;
 			border-radius: 50%;
 		 	img {
 		 		width: 100%;
 		 	}
 		 }
 	}
+	.header-light {
+		background: #062b4866 !important;
+	}
 	&-body{
-		padding-top: 100px;
+		padding-top: 80px;
 		.wrap-flex{
 			display: flex;
 			align-items: center;
 		}
 	}
 	&-img {
-		width: 100%;
+		width: 60%;
 		img {
 			width: 100%;
 		}
 	}
 	.phone-form {
-		position: absolute;
+		width: 40%;
 		background-image: url('../images/main/phoneForm.png');
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		right: 0px;
 		top: 0px;
-		z-index: 11;
 		&__heading{
 			padding: 40px 40px 10px 40px;
 			span {				
@@ -122,24 +176,10 @@ h1.title{
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
-			width: 100%;
+			justify-content: center;    
+			margin-left: 5%;
 			padding: 0 20px 40px 100px;
-			input{
-				display: block;
-				margin-top: 15px;
-				font-size: 12px;
-			}
-			.phone-form__button {
-				
-			   .phone-form__btn {
-				background-color: #fff;
-				border: none;
-				margin: 40px 0 10px 0;
-				width: 100%;
-				border-radius: 10px;
-			    }
-			}
+			
 	    }
  	}
 }
@@ -255,15 +295,15 @@ h1.title{
 //accordion
 
 .calc {
-	h1{}
 	.panel {    
 		&-group {
 			border-radius: 10px;
 			overflow: hidden;}
-		&-default {}
 		&-heading {
 			padding: 14px ;
-			background-color: #993333;
+			background: @table-header;
+			margin-top: 5px;
+			cursor: pointer;
 			.head-span 	{
 				color: white;
 			}
@@ -274,8 +314,8 @@ h1.title{
 
 		}
 		&-collapse {
-			background-color: #fdf5d1;
-			display: flex;
+			background: @table-body;
+			display: none;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
@@ -284,9 +324,9 @@ h1.title{
 			background-color: #ffcccc;
 			border-radius: 10px;
 			border: 1px solid #993333;
-		    outline: none;	
-
-			}
+			outline: none;
+			
+		}
 
 			.season-wrap {
 				display: flex;
@@ -408,16 +448,6 @@ h1.title{
 
 	//   кнопка акордиона
 
-	.btn__acordion {
-		border: none;
-		width: 100%;
-		margin: 15px 0;
-		padding: 14px;
-		background-color: #993333;
-		border-radius: 10px;
-		color: white;
-			
-	}
 	 .calc-img {
 		margin: 90px 0 0 60px ;
 		img {
@@ -434,6 +464,10 @@ h1.title{
 		    }
 		}
 	}
+}
+
+.collapse-open {
+	display: flex !important;
 }
 
 .wrapper {
@@ -506,7 +540,8 @@ h1.title{
 
 footer {
 	margin-top: auto;
-	background-color: #FFCDC1;	
+	background-color: @header-footer;	
+	color: @text-light;
 	.container {
 		.row {
 			display: flex;
@@ -532,12 +567,12 @@ footer {
 						}					
 					}
 					a {
-						color: #993333;
+						color: @link-light;
 						margin-left: 4px;
 					}
 				}
 				a {
-					color: #993333;
+					color: @link-light;
 				}
 				.alicante {
 					margin-top: 15px;
@@ -558,7 +593,7 @@ footer {
 				}
 				a{
 					margin-left: 13px;
-					color: #993333;
+					color: @link-light;
 				}
 			}
 			.question{
@@ -578,14 +613,6 @@ footer {
 					border: none;
 					border-radius: 7px;
 					padding: 25px;
-				}
-				button {
-					border: none;
-					background-color: #993333;
-					color: white;
-					margin: 10px;
-					border-radius: 10px;
-					padding: 7px 59px;
 				}
 
 			}			

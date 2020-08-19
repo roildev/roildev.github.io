@@ -19,9 +19,12 @@
 
  const servisContent = document.querySelectorAll('.servis__content'),
      circleBig = document.querySelectorAll('.circle-big'),
-     circleSmall = document.querySelectorAll('.circle-small')
+     circleSmall = document.querySelectorAll('.circle-small'),
+     accordionHeading = document.querySelectorAll('.panel-heading'),
+     accordionCollapse = document.querySelectorAll('.panel-collapse'),
+     header = document.getElementById('header'),
+     doc = document;
 
- console.log(servisContent);
 
  servisContent.forEach(card => {
      card.addEventListener('mouseover', (event) => {
@@ -39,6 +42,37 @@
          }
      });
  });
+
+//  header
+window.addEventListener('scroll', function() {
+    if (pageYOffset > 100) {
+        if(!header.classList.contains('header-light')) {
+            header.classList.add('header-light');
+        }
+    } else {
+        header.classList.remove('header-light');
+    }
+    // document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
+  });
+
+//  accordion
+
+accordionHeading.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        accordionCollapse.forEach((item2, index2) => {
+            if (item2.classList.contains('collapse-open')) {
+                item2.classList.remove('collapse-open');
+            } else {
+                item2.classList.remove('collapse-open');
+                if (index === index2) {
+                    item2.classList.toggle('collapse-open');
+                }
+            }
+        });
+    });
+});
+
+    
 
  // const popupLinks = document.querySelectorAll('.popup-link');
  // const body = document.querySelector('body');

@@ -22,6 +22,35 @@
   font-weight: bold;
   font-style: italic;
 }
+.button-dark {
+  border: 1px solid #0163d2;
+  width: 200px;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #0163d2;
+  border-radius: 5px;
+  color: #ffffff;
+}
+.button-light {
+  border: 1px solid #0163d2;
+  width: 200px;
+  margin: 15px 0;
+  padding: 10px;
+  background: #e8edf1;
+  border-radius: 5px;
+  color: #0163d2;
+}
+.input-normal {
+  height: 36px;
+  border-radius: 3px;
+  border: 1px solid #DBDBDB;
+  background-color: #ffffff;
+  width: 100%;
+  font-size: 12px;
+  padding: 5px 15px;
+  color: #3E3E3E;
+  margin: 5px 0;
+}
 html {
   height: 100%;
 }
@@ -48,40 +77,43 @@ h1.title {
   padding: 0;
   width: 100%;
   height: 80px;
-  background-color: #FFCDC1;
+  background-color: #062b48;
   z-index: 11;
+  transition: all 0.5s linear;
 }
 .main .header .logo {
   padding: 10px 20px 20px 20px;
   margin: 5px 0px 5px 20px;
   width: 150px;
-  background-color: #CB6B6A;
+  background: linear-gradient(0deg, #ffffff 0%, #e8edf1 100%);
   border-radius: 50%;
 }
 .main .header .logo img {
   width: 100%;
 }
+.main .header-light {
+  background: #062b4866 !important;
+}
 .main-body {
-  padding-top: 100px;
+  padding-top: 80px;
 }
 .main-body .wrap-flex {
   display: flex;
   align-items: center;
 }
 .main-img {
-  width: 100%;
+  width: 60%;
 }
 .main-img img {
   width: 100%;
 }
 .main .phone-form {
-  position: absolute;
+  width: 40%;
   background-image: url('../images/main/phoneForm.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   right: 0px;
   top: 0px;
-  z-index: 11;
 }
 .main .phone-form__heading {
   padding: 40px 40px 10px 40px;
@@ -117,20 +149,8 @@ h1.title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  margin-left: 5%;
   padding: 0 20px 40px 100px;
-}
-.main .phone-form__input input {
-  display: block;
-  margin-top: 15px;
-  font-size: 12px;
-}
-.main .phone-form__input .phone-form__button .phone-form__btn {
-  background-color: #fff;
-  border: none;
-  margin: 40px 0 10px 0;
-  width: 100%;
-  border-radius: 10px;
 }
 .servis {
   text-align: center;
@@ -243,7 +263,9 @@ h1.title {
 }
 .calc .panel-heading {
   padding: 14px ;
-  background-color: #993333;
+  background: #062b48;
+  margin-top: 5px;
+  cursor: pointer;
 }
 .calc .panel-heading .head-span {
   color: white;
@@ -253,8 +275,8 @@ h1.title {
   flex-direction: column;
 }
 .calc .panel-collapse {
-  background-color: #fdf5d1;
-  display: flex;
+  background: linear-gradient(0deg, #ffffff 0%, #e8edf1 100%);
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -366,15 +388,6 @@ h1.title {
   transform: translate(0px, 0px);
   transition: all 0.3s ease-in 0s;
 }
-.calc .btn__acordion {
-  border: none;
-  width: 100%;
-  margin: 15px 0;
-  padding: 14px;
-  background-color: #993333;
-  border-radius: 10px;
-  color: white;
-}
 .calc .calc-img {
   margin: 90px 0 0 60px ;
 }
@@ -389,6 +402,9 @@ h1.title {
   background-color: #ffcccc;
   border-radius: 10px;
   margin: 0 0 0 15px;
+}
+.collapse-open {
+  display: flex !important;
 }
 .wrapper {
   margin-top: 40px;
@@ -456,7 +472,8 @@ h1.title {
 }
 footer {
   margin-top: auto;
-  background-color: #FFCDC1;
+  background-color: #062b48;
+  color: #ffffff;
 }
 footer .container .row {
   display: flex;
@@ -485,11 +502,11 @@ footer .container .row .contacts__logos__item svg {
   height: 100%;
 }
 footer .container .row .contacts__logos a {
-  color: #993333;
+  color: #ffffff;
   margin-left: 4px;
 }
 footer .container .row .contacts a {
-  color: #993333;
+  color: #ffffff;
 }
 footer .container .row .contacts .alicante {
   margin-top: 15px;
@@ -510,7 +527,7 @@ footer .container .row .rent span {
 }
 footer .container .row .rent a {
   margin-left: 13px;
-  color: #993333;
+  color: #ffffff;
 }
 footer .container .row .question {
   display: flex;
@@ -530,14 +547,6 @@ footer .container .row .question .footer-question-input {
   border: none;
   border-radius: 7px;
   padding: 25px;
-}
-footer .container .row .question button {
-  border: none;
-  background-color: #993333;
-  color: white;
-  margin: 10px;
-  border-radius: 10px;
-  padding: 7px 59px;
 }
 footer .container .futer-logo {
   width: 130px;
