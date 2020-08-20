@@ -1,76 +1,146 @@
  "use strict";
  //   { "moz": true, "esnext": true, "globals": {}, "globalstrict": false, "quotmark": true, "smarttabs": true, "trailing": true, "undef": true, "unused": true, "maxerr": 10000, "devel": true, "predef": ["require", "exports"] };
- $(document).ready(function() {
-     $('.slider').slick({
-         arrows: true,
-         dots: true,
-         speed: 2000,
-         autoplay: true,
-         autoplaySpeed: 5000,
-         pauseOnFocus: true,
-         pauseOnHover: true,
-         pauseOnDotsHover: true,
-         draggable: true,
-         swipe: true,
-         touchTreshold: 10,
-         centerMode: false
-     });
- });
+$(document).ready(function() {
+    $('.slider').slick({
+        arrows: true,
+        dots: true,
+        speed: 2000,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+        pauseOnDotsHover: true,
+        draggable: true,
+        swipe: true,
+        touchTreshold: 10,
+        centerMode: false
+    });
 
- const servisContent = document.querySelectorAll('.servis__content'),
-     circleBig = document.querySelectorAll('.circle-big'),
-     circleSmall = document.querySelectorAll('.circle-small'),
-     accordionHeading = document.querySelectorAll('.panel-heading'),
-     accordionCollapse = document.querySelectorAll('.panel-collapse'),
-     header = document.getElementById('header'),
-     doc = document;
+    const servisContent = document.querySelectorAll('.servis__content'),
+        accordionHeading = document.querySelectorAll('.panel-heading'),
+        accordionCollapse = document.querySelectorAll('.panel-collapse'),
+        header = document.getElementById('header'),
+        arrowUp = document.getElementById('arrow-up'),
+        season = document.getElementById('switch-season'),
+        distance = document.getElementById('distance'),
+        wait = document.getElementById('switch-wait'),
+        waitTime = document.getElementById('wait-time'),
+        quantityPers = document.getElementById('quantity'),
+        childs = document.getElementById('switch-child'),
+        childAge = document.getElementById('child-age'),
+        childQuantity = document.getElementById('child-quantity'),
+        totalPrice = document.getElementById('total-price'),
+        formErrorMessage = document.querySelectorAll('.form-error');
+        
+    let arrowShow = false,
+        dataOrder = {
+            season: 'summer',
+            distance: 0,
+            wait: false,
+            waitTime: 0,
+            quantityPers: 0,
+            childs: {
+                available: false,
+                childQuantity: 0,
+                childAge: []
+            },
+            totalPrice: 0
+        };
+    ;
 
-
- servisContent.forEach(card => {
-     card.addEventListener('mouseover', (event) => {
-         if (event.target.closest('.servis__content')) {
-             card.childNodes[1].classList.remove('circle-big-active');
-             card.childNodes[1].classList.add('circle-big-active');
-             card.childNodes[3].classList.remove('circle-small-active');
-             card.childNodes[3].classList.add('circle-small-active');
-         }
-     });
-     card.addEventListener('mouseleave', (event) => {
-         if (event.target.closest('.servis__content')) {
-             card.childNodes[1].classList.remove('circle-big-active');
-             card.childNodes[3].classList.remove('circle-small-active');
-         }
-     });
- });
-
-//  header
-window.addEventListener('scroll', function() {
-    if (pageYOffset > 100) {
-        if(!header.classList.contains('header-light')) {
-            header.classList.add('header-light');
-        }
-    } else {
-        header.classList.remove('header-light');
-    }
-    // document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
-  });
-
-//  accordion
-
-accordionHeading.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        accordionCollapse.forEach((item2, index2) => {
-            if (item2.classList.contains('collapse-open')) {
-                item2.classList.remove('collapse-open');
-            } else {
-                item2.classList.remove('collapse-open');
-                if (index === index2) {
-                    item2.classList.toggle('collapse-open');
-                }
+    servisContent.forEach(card => {
+        card.addEventListener('mouseover', (event) => {
+            if (event.target.closest('.servis__content')) {
+                card.childNodes[1].classList.remove('circle-big-active');
+                card.childNodes[1].classList.add('circle-big-active');
+                card.childNodes[3].classList.remove('circle-small-active');
+                card.childNodes[3].classList.add('circle-small-active');
+            }
+        });
+        card.addEventListener('mouseleave', (event) => {
+            if (event.target.closest('.servis__content')) {
+                card.childNodes[1].classList.remove('circle-big-active');
+                card.childNodes[3].classList.remove('circle-small-active');
             }
         });
     });
+
+    //  header and arrow Up
+    window.addEventListener('scroll', function() {
+        if (pageYOffset > 300) {
+            if(!header.classList.contains('header-light')) {
+                header.classList.add('header-light');
+                arrowShow = true;
+                arrowUp.style.opacity = '0.6';
+            }
+        } else {
+            header.classList.remove('header-light');
+            arrowShow = false;
+            arrowUp.style.opacity = '0';
+        }
+        
+        if (arrowShow) {
+            arrowUp.addEventListener('mouseover', () => {
+                arrowUp.style.opacity = '1';
+            });
+            arrowUp.addEventListener('mouseleave', () => {
+                arrowUp.style.opacity = '0.6';
+            });
+            arrowUp.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        }
+    });
+
+
+    
+
+    //  accordion
+
+    accordionHeading.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            accordionCollapse.forEach((item2, index2) => {
+                if (item2.classList.contains('collapse-open')) {
+                    item2.classList.remove('collapse-open');
+                } else {
+                    item2.classList.remove('collapse-open');
+                    if (index === index2) {
+                        item2.classList.toggle('collapse-open');
+                    }
+                }
+            });
+        });
+    });
+
+    // calc
+
+    season.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            dataOrder.season = 'winter';
+        } else {
+            dataOrder.season = 'summer';
+        }
+    });
+
+    distance.addEventListener('change', (event) => {
+        const regExp = /\D/g;
+        if (event.target.value.match(regExp)) {
+            event.target.value = 0;
+            event.target.nextElementSibling.style.display = 'block';
+        } else {
+            event.target.value = event.target.value;
+            event.target.nextElementSibling.style.display = 'none';
+            dataOrder.distance = +event.target.value;
+            console.log(dataOrder)
+        }
+    });
+
 });
+
+ 
 
     
 

@@ -125,7 +125,8 @@
                                 <span class="head-span">Расстояние (км)</span>
                             </div>
                             <div class="panel-collapse">
-                                <input class="distance" type="text">
+                                <input class="distance" id="distance" type="text" required>
+                                <span class="form-error">Введите цифру</span>
                             </div>
                         </div>
 
@@ -147,7 +148,8 @@
                                 </div>
                                 <div class="time">
                                     <span>Время ожидания (ч)</span>
-                                    <input type="text">
+                                    <input id="wait-time" type="text">
+                                    <span class="form-error">Введите цифру</span>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +159,7 @@
                                 <span class="head-span">Колличество человек</span>
                             </div>
                             <div class="panel-collapse">
-                                <input class="quantity" type="text">
+                                <input class="quantity" id="quantity" type="text">
                                 <span>Детские кресла</span>
                                 <div class="choice">
                                     <span>Нет</span>
@@ -170,17 +172,17 @@
                                     </div>
                                     <span>Да</span>
                                 </div>
-                                <div class="age">
+                                <div id="child-age" class="age">
                                     <span>Возраст</span>
                                     <input type="text">
                                 </div>
-                                <div class="amount__children">
+                                <div id="child-quantity" class="amount__children">
                                     <span>Колличество</span>
                                     <input class="amount-of-children" type="text">
                                 </div>
                             </div>
                             <div style="display: flex; justify-content: center;">
-                                <button class="button-dark">Заказать со скидкой</button>
+                                <button type="submit" class="button-dark">Заказать со скидкой</button>
                             </div>
                         </div>
 
@@ -192,7 +194,7 @@
                         <img src="images/accardion/rent_car/rent_car.png" alt="">
                         <div class="total">
                             <span>ИТОГО :</span>
-                            <input type="text">
+                            <input id="total-price" type="text">
                         </div>
                     </div>
                 </div>
@@ -327,6 +329,17 @@
 
         </div>
     </section>
+
+    <div class="arrow-up" id="arrow-up">
+        <svg width="50px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.667 490.667" style="enable-background:new 0 0 490.667 490.667;" xml:space="preserve">
+            <path style="fill:#2196F3;" d="M245.333,0C109.839,0,0,109.839,0,245.333s109.839,245.333,245.333,245.333
+                s245.333-109.839,245.333-245.333C490.514,109.903,380.764,0.153,245.333,0z"/>
+            <path style="fill:#FAFAFA;" d="M267.968,82.219c-12.496-12.492-32.752-12.492-45.248,0L104.533,200.533
+                c-18.889,18.894-18.889,49.522,0,68.416c19.139,18.289,49.277,18.289,68.416,0l19.2-19.2v123.584
+                c0,29.455,23.878,53.333,53.333,53.333c29.455,0,53.333-23.878,53.333-53.333V249.749l19.2,19.2
+                c19.139,18.289,49.277,18.289,68.416,0c18.889-18.894,18.889-49.522,0-68.416L267.968,82.219z"/>
+        </svg>
+    </div>
 </body>
 
 </html>
