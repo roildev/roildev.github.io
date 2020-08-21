@@ -23,14 +23,17 @@ $(document).ready(function() {
         arrowUp = document.getElementById('arrow-up'),
         season = document.getElementById('switch-season'),
         distance = document.getElementById('distance'),
-        wait = document.getElementById('switch-wait'),
+        waitSwitch = document.getElementById('switch-wait'),
+        time = document.querySelector('.time'),
         waitTime = document.getElementById('wait-time'),
         quantityPers = document.getElementById('quantity'),
-        childs = document.getElementById('switch-child'),
+        childsSwitch = document.getElementById('switch-child'),
+        childSettings = document.querySelector('.child-settings'),
         childAge = document.getElementById('child-age'),
         childQuantity = document.getElementById('child-quantity'),
         totalPrice = document.getElementById('total-price'),
-        formErrorMessage = document.querySelectorAll('.form-error');
+        formErrorMessage = document.querySelectorAll('.form-error'),
+        submitFormCalc = document.getElementById('submit-form-calc');
         
     let arrowShow = false,
         dataOrder = {
@@ -47,6 +50,42 @@ $(document).ready(function() {
             totalPrice: 0
         };
     ;
+
+    // functions
+
+    
+    const errorMessage = (message, target) => {
+        target = message === 'show' ?
+        target.nextElementSibling.style.display = 'block' :
+        target.nextElementSibling.style.display = 'none';
+    }
+
+    const addElement = (nameBlock, amount) => {
+        if (nameBlock === 'age') {
+            if (!!childAge.firstElementChild) {
+                childAge.removeChild(childAge.firstElementChild)
+            }
+            const newElem = document.createElement('li');
+            newElem.innerHTML = `<span>Возраст ребенка</span>
+                <input type="text">
+                <span class="form-error">Введите цифру</span>`;
+            childAge.appendChild(newElem)
+            let divArray = [];
+            // for (let i = 1; i <= amount; i++) {
+            //     div.innerHTML = `<span>Возраст ${i}-ого ребенка</span>
+            //     <input type="text">
+            //     <span class="form-error">Введите цифру</span>`;
+            //     childAge.appendChild(div)
+            // }
+            console.log(divArray)
+            // divArray.forEach(e => {
+            //     childAge.appendChild(e);
+            // })
+        }
+    }
+
+
+    // Listeners
 
     servisContent.forEach(card => {
         card.addEventListener('mouseover', (event) => {
@@ -127,15 +166,83 @@ $(document).ready(function() {
 
     distance.addEventListener('change', (event) => {
         const regExp = /\D/g;
-        if (event.target.value.match(regExp)) {
-            event.target.value = 0;
-            event.target.nextElementSibling.style.display = 'block';
+        const target = event.target;
+        if (target.value.match(regExp)) {
+            target.value = 0;
+            errorMessage('show', target);
+           
         } else {
-            event.target.value = event.target.value;
-            event.target.nextElementSibling.style.display = 'none';
-            dataOrder.distance = +event.target.value;
-            console.log(dataOrder)
+            target.value = target.value;
+            errorMessage('hide', target);
+            dataOrder.distance = +target.value;
         }
+    });
+
+    waitSwitch.addEventListener('change', (event) => {
+        const checked = event.target.checked;
+        if (checked) {
+            time.style.display = 'flex';
+            dataOrder.wait = true;
+        } else {
+            time.style.display = 'none';
+            waitTime.value = '';
+            dataOrder.wait = false;
+        }
+    });
+
+    waitTime.addEventListener('change', (event) => {
+        const regExp = /\D/g;
+        const target = event.target;
+        if (target.value.match(regExp)) {
+            target.value = 0;
+            errorMessage('show', target);
+           
+        } else {
+            target.value = target.value;
+            errorMessage('hide', target);
+            dataOrder.waitTime = +target.value;
+        }
+    });
+    
+    quantityPers.addEventListener('change', (event) => {
+        const regExp = /\D/g;
+        const target = event.target;
+        if (target.value.match(regExp)) {
+            target.value = 0;
+            errorMessage('show', target);
+           
+        } else {
+            target.value = target.value;
+            errorMessage('hide', target);
+            dataOrder.quantityPers = +target.value;
+        }
+    });
+    childsSwitch.addEventListener('change', (event) => {
+        const checked = event.target.checked;
+        childSettings.style.display = checked ? 'block' : 'none';
+        if (checked) {
+            dataOrder.childs.available = true;
+            childQuantity.addEventListener('input', (event) => {
+                const regExp = /\D/g;
+                const target = event.target;
+                if (target.value.match(regExp) || +target.value > 3) {
+                    target.value = 0;
+                    console.dir(target)
+                    errorMessage('show', target);
+                
+                } else {
+                    target.value = target.value;
+                    errorMessage('hide', target);
+                    dataOrder.childs.childQuantity = +target.value;
+                    addElement('age', +target.value)
+                }
+            });
+        }
+    });
+    
+
+    submitFormCalc.addEventListener('click', () => {
+        console.log(dataOrder)
     });
 
 });

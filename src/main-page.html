@@ -160,6 +160,7 @@
                             </div>
                             <div class="panel-collapse">
                                 <input class="quantity" id="quantity" type="text">
+                                <span class="form-error">Введите цифру</span>
                                 <span>Детские кресла</span>
                                 <div class="choice">
                                     <span>Нет</span>
@@ -172,17 +173,23 @@
                                     </div>
                                     <span>Да</span>
                                 </div>
-                                <div id="child-age" class="age">
-                                    <span>Возраст</span>
-                                    <input type="text">
-                                </div>
-                                <div id="child-quantity" class="amount__children">
-                                    <span>Колличество</span>
-                                    <input class="amount-of-children" type="text">
+                                <div class="child-settings">
+                                    <div id="child-quantity" class="amount__children">
+                                        <span>Колличество</span>
+                                        <input class="amount-of-children" type="text">
+                                        <span class="form-error">Введите цифру (не более трех)</span>
+                                    </div>
+                                    <ul id="child-age" >
+                                        <!-- <div class="age">
+                                            <span>Возраст</span>
+                                            <input type="text">
+                                            <span class="form-error">Введите цифру</span>
+                                        </div> -->
+                                    </ul>
                                 </div>
                             </div>
                             <div style="display: flex; justify-content: center;">
-                                <button type="submit" class="button-dark">Заказать со скидкой</button>
+                                <button id="submit-form-calc" type="submit" class="button-dark">Заказать со скидкой</button>
                             </div>
                         </div>
 

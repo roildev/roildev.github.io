@@ -351,9 +351,10 @@ h1.title{
 				}			
 			}
 			.time {
-				display: flex;
+				display: none;
 				align-items: center;
 				justify-content: space-between;
+				flex-direction: column;
 				width: 100%;
 				padding: 0px 30px;
 				span {
@@ -370,7 +371,7 @@ h1.title{
 			//  возраст
 
 			.age {
-				display: flex;
+				display: none;
 				align-items: center;
 				justify-content: space-between;
 				width: 100%;
@@ -387,12 +388,21 @@ h1.title{
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				flex-direction: column;
 				width: 100%;
 				margin-top: 10px;
 				padding: 0px 30px;
 				span {
 					margin: 10px;
 					text-align: center;
+				}
+			}
+
+			.child-settings {
+				display: none;
+				
+				#child-age {
+					list-style: none;
 				}
 			}
 			
