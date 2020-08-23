@@ -351,6 +351,10 @@ h1.title {
 .calc .panel-collapse .child-settings #child-age {
   list-style: none;
 }
+.calc .panel-collapse .child-settings #child-age li {
+  text-align: center;
+  margin: 15px 0 0 0;
+}
 .calc .panel-collapse .img {
   margin: 20px;
   width: 50px;

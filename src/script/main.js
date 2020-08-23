@@ -62,25 +62,44 @@ $(document).ready(function() {
 
     const addElement = (nameBlock, amount) => {
         if (nameBlock === 'age') {
-            if (!!childAge.firstElementChild) {
-                childAge.removeChild(childAge.firstElementChild)
+            // добавление в обект количество детей
+            dataOrder.childs.childQuantity = amount;
+
+            if (childAge.childElementCount) {
+                for (let i = 0; childAge.childElementCount; i++) {
+                    childAge.removeChild(childAge.firstElementChild);
+                }
             }
-            const newElem = document.createElement('li');
-            newElem.innerHTML = `<span>Возраст ребенка</span>
-                <input type="text">
-                <span class="form-error">Введите цифру</span>`;
-            childAge.appendChild(newElem)
-            let divArray = [];
-            // for (let i = 1; i <= amount; i++) {
-            //     div.innerHTML = `<span>Возраст ${i}-ого ребенка</span>
-            //     <input type="text">
-            //     <span class="form-error">Введите цифру</span>`;
-            //     childAge.appendChild(div)
-            // }
-            console.log(divArray)
-            // divArray.forEach(e => {
-            //     childAge.appendChild(e);
-            // })
+            for (let i = 1; i <= amount; i++) {
+                const div = document.createElement('li');
+                if (i < 3) {
+                    div.innerHTML = `<span>Возраст ${i}-ого ребенка</span>
+                    <input class="childAgeUnico" type="text">
+                    <span class="form-error">Введите цифру меньше 12</span>`;
+                    childAge.appendChild(div)
+                } else {
+                    div.innerHTML = `<span>Возраст ${i}-eго ребенка</span>
+                    <input class="childAgeUnico" type="text">
+                    <span class="form-error">Введите цифру меньше 12</span>`;
+                    childAge.appendChild(div)
+                }
+            }
+            const childAgeUnico = document.querySelectorAll('.childAgeUnico');
+            childAgeUnico.forEach(childAge => {
+                childAge.addEventListener('input', (event) => {
+                    const regExp = /\D/g;
+                    const target = event.target;
+                    
+                    if (target.value.match(regExp) || +target.value > 12) {
+                        target.value = 0;
+                        errorMessage('show', target);
+                    } else {
+                        target.value = target.value;
+                        errorMessage('hide', target);
+                    }
+                    dataOrder.childs.childAge.push(+childAge.value);
+                });
+            });
         }
     }
 
@@ -220,15 +239,21 @@ $(document).ready(function() {
     childsSwitch.addEventListener('change', (event) => {
         const checked = event.target.checked;
         childSettings.style.display = checked ? 'block' : 'none';
+        
         if (checked) {
             dataOrder.childs.available = true;
             childQuantity.addEventListener('input', (event) => {
+                console.log(event)
                 const regExp = /\D/g;
                 const target = event.target;
                 if (target.value.match(regExp) || +target.value > 3) {
                     target.value = 0;
-                    console.dir(target)
                     errorMessage('show', target);
+                    if (childAge.childElementCount) {
+                        for (let i = 0; childAge.childElementCount; i++) {
+                            childAge.removeChild(childAge.firstElementChild);
+                        }
+                    }
                 
                 } else {
                     target.value = target.value;
@@ -237,6 +262,20 @@ $(document).ready(function() {
                     addElement('age', +target.value)
                 }
             });
+        } else {
+            dataOrder.childs.available = false;
+            dataOrder.childs.childAge = [];
+            dataOrder.childs.childQuantity = 0;
+
+            if (childQuantity) {
+                childQuantity.children[1].value = ''
+            }
+
+            if (childAge.childElementCount) {
+                for (let i = 0; childAge.childElementCount; i++) {
+                    childAge.removeChild(childAge.firstElementChild);
+                }
+            }
         }
     });
     
