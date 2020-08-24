@@ -53,6 +53,33 @@ $(document).ready(function() {
 
     // functions
 
+    const calcPriceTaxi = () => {
+        const distance = dataOrder.distance,
+            priceKM = dataOrder.distance <= 80 ? 0.8 : 
+            dataOrder.distance > 80 && dataOrder.distance <= 120 ? 0.7 :
+            dataOrder.distance > 120 && dataOrder.distance <= 150 ? 0.65 :
+            dataOrder.distance > 150 ? 0.6 : 0.6,
+            seasonMargen = dataOrder.season === 'summer' ? 0.05 : 0.05,
+            waitTimePrice = dataOrder.waitTime * 10,
+            quantityPers = dataOrder.quantityPers;
+        
+        let totalPriceAccordion = distance * priceKM;
+        if (dataOrder.season === 'summer') {
+            totalPriceAccordion += totalPriceAccordion * seasonMargen;
+        } else {
+            totalPriceAccordion -= totalPriceAccordion * seasonMargen;
+        }
+        if (dataOrder.wait) {
+            totalPriceAccordion += waitTimePrice;
+        }
+        if (quantityPers > 4) {
+            totalPriceAccordion *= 1.7;
+        }
+        
+        return Math.floor(totalPriceAccordion);
+
+    }
+
     
     const errorMessage = (message, target) => {
         target = message === 'show' ?
@@ -186,7 +213,7 @@ $(document).ready(function() {
     distance.addEventListener('change', (event) => {
         const regExp = /\D/g;
         const target = event.target;
-        if (target.value.match(regExp)) {
+        if (target.value.match(regExp) || +target.value > 600) {
             target.value = 0;
             errorMessage('show', target);
            
@@ -281,7 +308,7 @@ $(document).ready(function() {
     
 
     submitFormCalc.addEventListener('click', () => {
-        console.log(dataOrder)
+        totalPrice.value = calcPriceTaxi();
     });
 
 });
