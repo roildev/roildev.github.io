@@ -33,6 +33,7 @@ $(document).ready(function() {
         childQuantity = document.getElementById('child-quantity'),
         totalPrice = document.getElementById('total-price'),
         formErrorMessage = document.querySelectorAll('.form-error'),
+        calculation = document.getElementById('calc'),
         submitFormCalc = document.getElementById('submit-form-calc');
         
     let arrowShow = false,
@@ -101,12 +102,12 @@ $(document).ready(function() {
                 const div = document.createElement('li');
                 if (i < 3) {
                     div.innerHTML = `<span>Возраст ${i}-ого ребенка</span>
-                    <input class="childAgeUnico" type="text">
+                    <input name="child_age${i}" class="childAgeUnico" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 } else {
                     div.innerHTML = `<span>Возраст ${i}-eго ребенка</span>
-                    <input class="childAgeUnico" type="text">
+                    <input name="child_age${i}" class="childAgeUnico" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 }
@@ -307,8 +308,12 @@ $(document).ready(function() {
     });
     
 
-    submitFormCalc.addEventListener('click', () => {
+    calculation.addEventListener('click', () => {
         totalPrice.value = calcPriceTaxi();
+    });
+
+    submitFormCalc.addEventListener('click', () => {
+
     });
 
 });

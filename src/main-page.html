@@ -89,120 +89,125 @@
     </section>
 
     <section class="calc">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 offset-1">
-                    <h1 class="title"> Узнайте цену трансфера</h1>
+        <form action="script/mail-send.php" method="POST">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 offset-1">
+                        
+                        <h1 class="title"> Узнайте цену трансфера</h1>
 
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default panel-one	">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <span class="head-span">Сезон</span>
-                            </div>
-
-                            <div class="panel-collapse collapse-one">
-                                <div class="season-wrap">
-                                    <div class="img">
-                                        <img src="images/accardion/sun.png" alt="">
-                                    </div>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="" id="switch-season" class="check-switch">
-                                        <label for="switch-season" class="switch-label">
-										<span class="switch-inner"></span>
-										<span class="switch-switch"></span>
-									</label>
-                                    </div>
-                                    <div class="img">
-                                        <img src="images/accardion/snow.png" alt="">
-                                    </div>
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default panel-one	">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <span class="head-span">Сезон</span>
                                 </div>
 
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default panel-two	">
-                            <div class="panel-heading" role="tab" id="headingTwo">
-                                <span class="head-span">Расстояние (км)</span>
-                            </div>
-                            <div class="panel-collapse">
-                                <input class="distance" id="distance" type="text" required>
-                                <span class="form-error">Введите цифру (не более 600)</span>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default panel-three	">
-                            <div class="panel-heading" role="tab" id="headingThree">
-                                <span class="head-span">Ожидание</span>
-                            </div>
-                            <div class="panel-collapse panel-wait">
-                                <div class="choice">
-                                    <span>Нет</span>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="" id="switch-wait" class="check-switch">
-                                        <label for="switch-wait" class="switch-label">
-											<span class="switch-inner"></span>
-											<span class="switch-switch"></span>
-										</label>
+                                <div class="panel-collapse collapse-one">
+                                    <div class="season-wrap">
+                                        <div class="img">
+                                            <img src="images/accardion/sun.png" alt="">
+                                        </div>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="season" id="switch-season" class="check-switch">
+                                            <label for="switch-season" class="switch-label">
+                                            <span class="switch-inner"></span>
+                                            <span class="switch-switch"></span>
+                                        </label>
+                                        </div>
+                                        <div class="img">
+                                            <img src="images/accardion/snow.png" alt="">
+                                        </div>
                                     </div>
-                                    <span>Да</span>
+
                                 </div>
-                                <div class="time">
-                                    <span>Время ожидания (ч)</span>
-                                    <input id="wait-time" type="text">
+                            </div>
+
+                            <div class="panel panel-default panel-two	">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <span class="head-span">Расстояние (км)</span>
+                                </div>
+                                <div class="panel-collapse">
+                                    <input class="distance" name="distance" id="distance" type="text" required>
+                                    <span class="form-error">Введите цифру (не более 600)</span>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default panel-three	">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <span class="head-span">Ожидание</span>
+                                </div>
+                                <div class="panel-collapse panel-wait">
+                                    <div class="choice">
+                                        <span>Нет</span>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="wait" id="switch-wait" class="check-switch">
+                                            <label for="switch-wait" class="switch-label">
+                                                <span class="switch-inner"></span>
+                                                <span class="switch-switch"></span>
+                                            </label>
+                                        </div>
+                                        <span>Да</span>
+                                    </div>
+                                    <div class="time">
+                                        <span>Время ожидания (ч)</span>
+                                        <input name="wait_time" id="wait-time" type="text">
+                                        <span class="form-error">Введите цифру</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default panel-four	">
+                                <div class="panel-heading" role="tab" id="headingFour">
+                                    <span class="head-span">Колличество человек</span>
+                                </div>
+                                <div class="panel-collapse">
+                                    <input class="quantity" id="quantity" type="text" name="quantity">
                                     <span class="form-error">Введите цифру</span>
+                                    <span>Детские кресла</span>
+                                    <div class="choice">
+                                        <span>Нет</span>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="childs_availible" id="switch-child" class="check-switch">
+                                            <label for="switch-child" class="switch-label">
+                                            <span class="switch-inner"></span>
+                                            <span class="switch-switch"></span>
+                                        </label>
+                                        </div>
+                                        <span>Да</span>
+                                    </div>
+                                    <div class="child-settings">
+                                        <div id="child-quantity" class="amount__children">
+                                            <span>Колличество</span>
+                                            <input name="child_quantity" class="amount-of-children" type="text">
+                                            <span class="form-error">Введите цифру (не более трех)</span>
+                                        </div>
+                                        <div id="child-age" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: center;">
+                                    <button id="calc"  class="button-dark">Рассчитать</button>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="panel panel-default panel-four	">
-                            <div class="panel-heading" role="tab" id="headingFour">
-                                <span class="head-span">Колличество человек</span>
-                            </div>
-                            <div class="panel-collapse">
-                                <input class="quantity" id="quantity" type="text">
-                                <span class="form-error">Введите цифру</span>
-                                <span>Детские кресла</span>
-                                <div class="choice">
-                                    <span>Нет</span>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="" id="switch-child" class="check-switch">
-                                        <label for="switch-child" class="switch-label">
-										<span class="switch-inner"></span>
-										<span class="switch-switch"></span>
-									</label>
-                                    </div>
-                                    <span>Да</span>
-                                </div>
-                                <div class="child-settings">
-                                    <div id="child-quantity" class="amount__children">
-                                        <span>Колличество</span>
-                                        <input class="amount-of-children" type="text">
-                                        <span class="form-error">Введите цифру (не более трех)</span>
-                                    </div>
-                                    <div id="child-age" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="display: flex; justify-content: center;">
-                                <button id="submit-form-calc" type="submit" class="button-dark">Заказать со скидкой</button>
-                            </div>
                         </div>
 
                     </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="calc-img">
-                        <img src="images/accardion/rent_car/rent_car.png" alt="">
-                        <div class="total">
-                            <span>ИТОГО :</span>
-                            <input id="total-price" type="text">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="calc-img">
+                            <img src="images/accardion/rent_car/rent_car.png" alt="">
+                            <div class="total" style="text-align: center;">
+                                <span>ИТОГО :</span>
+                                <input id="total-price" type="text">
+                                
+                                <button id="submit-form-calc" type="submit" class="button-dark">Заказать</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-
-        </div>
+        </form>
     </section>
 
 
