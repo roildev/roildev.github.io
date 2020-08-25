@@ -677,7 +677,7 @@ footer {
 		top: 0;
 		left: 0;
 		z-index: 990;
-		opacity: 0;
+		opacity: 1;
 		visibility: hidden;	
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -691,8 +691,8 @@ footer {
 			padding: 30px 10px;
 			.popup__content {
 				border-radius: 10px;
-				background-color: #ffcccc;
-				color: #993333;
+				background-color: @header-footer;
+				color: @text-light;
 				max-width: 400px;
 				padding: 30px;
 				position: relative;
@@ -703,32 +703,18 @@ footer {
 					position: absolute;
 					right: 10px;
 					top: 10px;
-					font-size: 20px;
-					color: #993333;
 					text-decoration: none;
 				}	
 				.popup__title {
 					font-size: 30px;
 					margin: 0 0 1em 0;
 				}
-				.popup__text {
+				.popup__form {
 					display: flex;
 					flex-direction: column;
 					align-items: center;
 			        justify-content: center;
-			        text-align: center;					
-					input {
-						border-radius: 5px;
-						border: none;
-						padding: 5px 4px;
-						margin: 0 0 10px 0;
-					}
-					button {
-						border-radius: 5px;
-						border: none;
-						background-color: #993333;
-                        color: white;
-	 				}
+			        text-align: center;	
 				}
 			}
 		}

@@ -303,14 +303,13 @@
                 <a href="#header" class="popup__close close-popup">X</a>
                 <div class="popup__title">Заказать трансфер</div>
                 <div class="popup__text">
-                    <input type="text" placeholder="Город прилёта">
-                    <input type="text" placeholder="Место назначения">
-                    <input type="text" placeholder="Ваш телефон">
-                    <input type="text" placeholder="Ваше имя">
+                    <input class="input-normal" type="text" placeholder="Город прилёта">
+                    <input class="input-normal" type="text" placeholder="Место назначения">
+                    <input class="input-normal" type="text" placeholder="Ваш телефон">
+                    <input class="input-normal" type="text" placeholder="Ваше имя">
                     <button>Заказать</button>
-                    <span>
-                       Спасибо!<br>
-                       Мы с вами свяжемся 
+                    <span class="thanks-mesage">
+                        Спасибо за заявку! С вами скоро свяжутся
                    </span>
                 </div>
             </div>
@@ -324,19 +323,20 @@
             <a href="#header" class="popup__area"></a>
             <div class="popup__body">
                 <div class="popup__content">
-                    <a href="#header" class="popup__close close-popup">X</a>
+                    <a href="#header" class="popup__close close-popup">
+                        <img style="width: 15px;" src="images/other/cancel.png" alt="" srcset="">
+                    </a>
                     <div class="popup__title">Арендовать авто</div>
-                    <div class="popup__text">
-                        <input type="text" placeholder="Город">
-                        <input type="text" placeholder="Колличество суток">
-                        <input type="text" placeholder="Ваш телефон">
-                        <input type="text" placeholder="Ваше имя">
-                        <button>Узнать цену</button>
-                        <span>
-                           Спасибо!<br>
-                           Мы с вами свяжемся 
+                    <form class="popup__form">
+                        <input class="input-normal" type="text" placeholder="Город">
+                        <input class="input-normal" type="text" placeholder="Колличество суток">
+                        <input class="input-normal" type="text" placeholder="Ваш телефон">
+                        <input class="input-normal" type="text" placeholder="Ваше имя">
+                        <button class="button-dark" type="submit">Узнать цену</button>
+                        <span class="thanks-mesage">
+                            Спасибо за заявку! С вами скоро свяжутся
                        </span>
-                    </div>
+                    </form>
                 </div>
             </div>
 
