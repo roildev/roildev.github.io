@@ -34,8 +34,10 @@ $(document).ready(function() {
         totalPrice = document.getElementById('total-price'),
         formErrorMessage = document.querySelectorAll('.form-error'),
         calculation = document.getElementById('calc'),
-        submitFormCalc = document.getElementById('submit-form-calc');
-        
+        submitFormCalc = document.getElementById('submit-form-calc'),
+        allForms = document.querySelectorAll('form');
+
+                
     let arrowShow = false,
         dataOrder = {
             season: 'summer',
@@ -131,6 +133,14 @@ $(document).ready(function() {
         }
     }
 
+    const formValidation = (form) => {
+        for (let i = 0; i < form.length; i++) {
+            if (form[i].nodeName === 'INPUT' && form[i].type !== 'checkbox') {
+                console.log(form[i].value)
+            }
+        }
+    };
+
 
     // Listeners
 
@@ -157,21 +167,14 @@ $(document).ready(function() {
             if(!header.classList.contains('header-light')) {
                 header.classList.add('header-light');
                 arrowShow = true;
-                arrowUp.style.opacity = '0.6';
+                arrowUp.style.display = 'flex';
             }
         } else {
             header.classList.remove('header-light');
             arrowShow = false;
-            arrowUp.style.opacity = '0';
+            arrowUp.style.display = 'none';
         }
-        
-        if (arrowShow) {
-            arrowUp.addEventListener('mouseover', () => {
-                arrowUp.style.opacity = '1';
-            });
-            arrowUp.addEventListener('mouseleave', () => {
-                arrowUp.style.opacity = '0.6';
-            });
+        if (!!arrowShow) {
             arrowUp.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
@@ -312,9 +315,13 @@ $(document).ready(function() {
         totalPrice.value = calcPriceTaxi();
     });
 
-    submitFormCalc.addEventListener('click', () => {
-
-    });
+    allForms.forEach(form => {
+        form.addEventListener('click', (event) => {
+            if (event.target.type ==='submit') {
+                formValidation(form);
+            }
+        });
+    })
 
 });
 
