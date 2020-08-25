@@ -104,12 +104,12 @@ $(document).ready(function() {
                 const div = document.createElement('li');
                 if (i < 3) {
                     div.innerHTML = `<span>Возраст ${i}-ого ребенка</span>
-                    <input name="child_age${i}" class="childAgeUnico" type="text">
+                    <input style="width: 80%;" class="input-normal" name="child_age${i}" class="childAgeUnico" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 } else {
                     div.innerHTML = `<span>Возраст ${i}-eго ребенка</span>
-                    <input name="child_age${i}" class="childAgeUnico" type="text">
+                    <input style="width: 80%;" class="input-normal" name="child_age${i}" class="childAgeUnico" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 }
