@@ -104,12 +104,12 @@ $(document).ready(function() {
                 const div = document.createElement('li');
                 if (i < 3) {
                     div.innerHTML = `<span>Возраст ${i}-ого ребенка</span>
-                    <input style="width: 80%;" class="childAgeUnico input-normal" name="child_ages" type="text">
+                    <input style="width: 80%;" class="childAgeUnico input-normal" name="child_age${i}" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 } else {
                     div.innerHTML = `<span>Возраст ${i}-eго ребенка</span>
-                    <input style="width: 80%;" class="childAgeUnico input-normal" name="child_ages" type="text">
+                    <input style="width: 80%;" class="childAgeUnico input-normal" name="child_age${i}" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 }
@@ -124,7 +124,7 @@ $(document).ready(function() {
                         target.value = 0;
                         errorMessage('show', target);
                     } else {
-                        target.value = target.value;
+                        target.value = +target.value;
                         errorMessage('hide', target);
                     }
                     dataOrder.childs.childAge.push(+childAge.value);
