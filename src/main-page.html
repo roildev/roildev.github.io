@@ -31,10 +31,10 @@
                                 <span>Заказать трансфер! <strong>сейчас</strong>
                                 </span>
                             </div>
-                            <form  class="phone-form__input">
-                                <input class="input-normal form-control" type="text" placeholder="Город прилёта" required>
-                                <input class="input-normal form-control" type="text" placeholder="Место назначения" required>
-                                <input class="input-normal form-control" type="text" placeholder="Ваш телефон" required>
+                            <form name="order_taxi"  class="phone-form__input">
+                                <input maxlength="30" class="input-normal form-control" type="text" placeholder="Город прилёта">
+                                <input maxlength="30" class="input-normal form-control" type="text" placeholder="Место назначения">
+                                <input class="input-normal form-control" type="text" placeholder="Ваш телефон" pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" required>
                                 <div class="phone-form__button">
     
                                     <button style="padding: 8px; width: 80%;"
@@ -84,123 +84,118 @@
         </section>
     
         <section class="calc">
-            <form action="script/mail-send.php" method="POST">
+            <form name="calc_price_taxi" action="mail-send.php" method="POST">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 offset-1">
+                    <div class="calc__wrap">
                             
+
+                        <div class="panel-group" id="accordion">
                             <h1 class="title"> Узнайте цену трансфера</h1>
-    
-                            <div class="panel-group" id="accordion">
-                                <div class="panel panel-default panel-one	">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <span class="head-span">Сезон</span>
+                            <div class="panel panel-default panel-one	">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <span class="head-span">Сезон</span>
+                                </div>
+
+                                <div class="panel-collapse collapse-one">
+                                    <div class="season-wrap">
+                                        <div class="img">
+                                            <img src="images/accardion/sun.png" alt="">
+                                        </div>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="season" id="switch-season" class="check-switch">
+                                            <label for="switch-season" class="switch-label">
+                                            <span class="switch-inner"></span>
+                                            <span class="switch-switch"></span>
+                                        </label>
+                                        </div>
+                                        <div class="img">
+                                            <img src="images/accardion/snow.png" alt="">
+                                        </div>
                                     </div>
-    
-                                    <div class="panel-collapse collapse-one">
-                                        <div class="season-wrap">
-                                            <div class="img">
-                                                <img src="images/accardion/sun.png" alt="">
-                                            </div>
-                                            <div class="onoffswitch">
-                                                <input type="checkbox" name="season" id="switch-season" class="check-switch">
-                                                <label for="switch-season" class="switch-label">
+
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default panel-two	">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <span class="head-span">Расстояние (км)</span>
+                                </div>
+                                <div class="panel-collapse">
+                                    <input class="input-normal" name="distance" id="distance" type="text" required>
+                                    <span class="form-error">Введите цифру (не более 600)</span>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default panel-three	">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <span class="head-span">Ожидание</span>
+                                </div>
+                                <div class="panel-collapse panel-wait">
+                                    <div class="choice">
+                                        <span>Нет</span>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="wait" id="switch-wait" class="check-switch">
+                                            <label for="switch-wait" class="switch-label">
                                                 <span class="switch-inner"></span>
                                                 <span class="switch-switch"></span>
                                             </label>
-                                            </div>
-                                            <div class="img">
-                                                <img src="images/accardion/snow.png" alt="">
-                                            </div>
                                         </div>
-    
+                                        <span>Да</span>
                                     </div>
-                                </div>
-    
-                                <div class="panel panel-default panel-two	">
-                                    <div class="panel-heading" role="tab" id="headingTwo">
-                                        <span class="head-span">Расстояние (км)</span>
-                                    </div>
-                                    <div class="panel-collapse">
-                                        <input class="input-normal" name="distance" id="distance" type="text" required>
-                                        <span class="form-error">Введите цифру (не более 600)</span>
-                                    </div>
-                                </div>
-    
-                                <div class="panel panel-default panel-three	">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <span class="head-span">Ожидание</span>
-                                    </div>
-                                    <div class="panel-collapse panel-wait">
-                                        <div class="choice">
-                                            <span>Нет</span>
-                                            <div class="onoffswitch">
-                                                <input type="checkbox" name="wait" id="switch-wait" class="check-switch">
-                                                <label for="switch-wait" class="switch-label">
-                                                    <span class="switch-inner"></span>
-                                                    <span class="switch-switch"></span>
-                                                </label>
-                                            </div>
-                                            <span>Да</span>
-                                        </div>
-                                        <div class="time">
-                                            <span>Время ожидания (ч)</span>
-                                            <input class="input-normal" name="wait_time" id="wait-time" type="text">
-                                            <span class="form-error">Введите цифру</span>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="panel panel-default panel-four	">
-                                    <div class="panel-heading" role="tab" id="headingFour">
-                                        <span class="head-span">Колличество человек</span>
-                                    </div>
-                                    <div class="panel-collapse">
-                                        <input class="input-normal" id="quantity" type="text" name="quantity" required>
+                                    <div class="time">
+                                        <span>Время ожидания (ч)</span>
+                                        <input class="input-normal" name="wait_time" id="wait-time" type="text">
                                         <span class="form-error">Введите цифру</span>
-                                        <span>Детские кресла</span>
-                                        <div class="choice">
-                                            <span>Нет</span>
-                                            <div class="onoffswitch">
-                                                <input type="checkbox" name="childs_availible" id="switch-child" class="check-switch">
-                                                <label for="switch-child" class="switch-label">
-                                                <span class="switch-inner"></span>
-                                                <span class="switch-switch"></span>
-                                            </label>
-                                            </div>
-                                            <span>Да</span>
-                                        </div>
-                                        <div class="child-settings">
-                                            <div id="child-quantity" class="amount__children">
-                                                <span>Колличество</span>
-                                                <input name="child_quantity" class="input-normal" type="text">
-                                                <span class="form-error">Введите цифру (не более трех)</span>
-                                            </div>
-                                            <div id="child-age" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div style="display: flex; justify-content: center;">
-                                        <button type="button" id="calc"  class="button-dark">Рассчитать</button>
                                     </div>
                                 </div>
-    
                             </div>
-    
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="calc-img">
-                                <img src="images/accardion/rent_car/rent_car.png" alt="">
-                                <div class="total" style="text-align: center;">
-                                    <div  class="total__wrap">
-                                        <span>ИТОГО :</span>
-                                        <input style="width: 200px; margin-left: 20px;" class="input-normal" id="total-price" type="text" readonly>
+
+                            <div class="panel panel-default panel-four	">
+                                <div class="panel-heading" role="tab" id="headingFour">
+                                    <span class="head-span">Колличество человек</span>
+                                </div>
+                                <div class="panel-collapse">
+                                    <input class="input-normal" id="quantity" type="text" name="quantity" required>
+                                    <span class="form-error">Введите цифру (более 0)</span>
+                                    <span>Детские кресла</span>
+                                    <div class="choice">
+                                        <span>Нет</span>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="childs_availible" id="switch-child" class="check-switch">
+                                            <label for="switch-child" class="switch-label">
+                                            <span class="switch-inner"></span>
+                                            <span class="switch-switch"></span>
+                                        </label>
+                                        </div>
+                                        <span>Да</span>
                                     </div>
-                                    
-                                    <button id="submit-form-calc" type="submit" class="button-dark">Заказать</button>
-                                </input>
+                                    <div class="child-settings">
+                                        <div id="child-quantity" class="amount__children">
+                                            <span>Колличество</span>
+                                            <input name="child_quantity" class="input-normal" type="text">
+                                            <span class="form-error">Введите цифру (не более трех)</span>
+                                        </div>
+                                        <ul id="child-age"></ul>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: center;">
+                                    <button type="button" id="calc"  class="button-dark">Рассчитать</button>
+                                </div>
                             </div>
+
                         </div>
+                        <div class="calc-img">
+                            <img src="images/accardion/rent_car/rent_car.png" alt="">
+                            <div class="total" style="text-align: center;">
+                                <div  class="total__wrap">
+                                    <span>ИТОГО :</span>
+                                    <input style="width: 200px; margin-left: 20px;" class="input-normal" id="total-price" type="text" readonly>
+                                </div>
+                                
+                                <button id="submit-form-calc" type="submit" class="button-dark">Заказать</button>
+                            </input>
+                        </div>
+
                     </div>
     
                 </div>
@@ -266,16 +261,16 @@
                         </span>
                         <a href="#modal">Позвоните мне</a>
                     </div>
-                    <div class="question">
+                    <form name="question" class="question">
                         <h4>
                             Задать вопрос:
                         </h4>
                         <input type="text" class="footer-question-number" placeholder="Ваш номер телефона">
                         <input class="footer-question-input" type="text">
-                        <button class="button-dark">
+                        <button type="submit" class="button-dark">
                             Отправить
                         </button>
-                    </div>
+                    </form>
                 </div>
                 <div class="row">
                     <div class="futer-logo">
@@ -293,16 +288,16 @@
                 <div class="popup__content">
                     <a href="#header" class="popup__close close-popup">X</a>
                     <div class="popup__title">Заказать трансфер</div>
-                    <div class="popup__text">
+                    <form name="order_taxi" class="popup__form">
                         <input class="input-normal" type="text" placeholder="Город прилёта">
                         <input class="input-normal" type="text" placeholder="Место назначения">
                         <input class="input-normal" type="text" placeholder="Ваш телефон">
                         <input class="input-normal" type="text" placeholder="Ваше имя">
-                        <button>Заказать</button>
+                        <button class="button-dark" type="submit">Заказать</button>
                         <span class="thanks-mesage">
                             Спасибо за заявку! С вами скоро свяжутся
                        </span>
-                    </div>
+                    </form>
                 </div>
             </div>
     
@@ -318,7 +313,7 @@
                             <img style="width: 15px;" src="images/other/cancel.png" alt="" srcset="">
                         </a>
                         <div class="popup__title">Арендовать авто</div>
-                        <form class="popup__form">
+                        <form name="rent_car" class="popup__form">
                             <input class="input-normal" type="text" placeholder="Город">
                             <input class="input-normal" type="text" placeholder="Колличество суток">
                             <input class="input-normal" type="text" placeholder="Ваш телефон">

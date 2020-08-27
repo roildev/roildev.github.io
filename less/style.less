@@ -51,7 +51,16 @@
     padding: 10px;
     background-color: @btn-dark;
     border-radius: 5px;
-    color: @text-light;
+	color: @text-light;
+	:disabled {
+		border: 1px solid @btn-disabled;
+		width: 200px;
+		margin: 15px 0;
+		padding: 10px;
+		background: @btn-disabled;
+		border-radius: 5px;
+		color: @btn-dark;
+	}
 }
 
 .button-light {
@@ -67,29 +76,37 @@
 		background: @btn-dark;
 		color: @btn-light;
 	}
+	:disabled {
+		border: 1px solid @btn-disabled;
+		width: 200px;
+		margin: 15px 0;
+		padding: 10px;
+		background: @btn-disabled;
+		border-radius: 5px;
+		color: @btn-dark;
+	}
 }
 
-.button-disabled {
-	border: 1px solid @btn-disabled;
-    width: 200px;
-    margin: 15px 0;
-    padding: 10px;
-    background: @btn-disabled;
-    border-radius: 5px;
-	color: @btn-dark;
-}
 
 .input-normal {
 	height: 36px;
     border-radius: 3px;
     border: 1px solid #DBDBDB;
     background-color: #ffffff;
-    width: 100%;
-    font-size: 12px;
+    width: 80%;
+    font-size: 14px !important;
     padding: 5px 15px;
     color: #3E3E3E;
 	margin: 5px 0;
 	font-size: 18px;
+	&:invalid {
+		border: 1px solid #f59a9a;
+    	background-color: #fde9e9;
+	}
+	&:valid {
+		border: 1px solid #96c596;
+		background-color: #e0f5e0;
+	}
 }
 .input-main {
 	border-radius: 3px;
@@ -316,10 +333,15 @@ h1.title{
 //accordion
 
 .calc {
+	&__wrap {
+		display: flex;
+	}
 	.panel {    
 		&-group {
 			border-radius: 10px;
-			overflow: hidden;}
+			overflow: hidden;
+			margin-top: 30px;
+		}
 		&-heading {
 			padding: 14px ;
 			background: @table-header;
@@ -405,7 +427,6 @@ h1.title{
 				flex-direction: column;
 				width: 100%;
 				margin-top: 10px;
-				padding: 0px 30px;
 				span {
 					margin: 10px;
 					text-align: center;
@@ -417,6 +438,7 @@ h1.title{
 				
 				#child-age {
 					list-style: none;
+					padding: 0;
 					li {
 						text-align: center;
 						margin: 15px 0 0 0;
@@ -482,7 +504,8 @@ h1.title{
 	//   кнопка акордиона
 
 .calc-img {
-	margin: 90px 0 0 60px ;
+	margin: 90px 0 0 60px;
+	width: 50%;
 	img {
 		width: 100%;
 	}
@@ -849,6 +872,17 @@ footer {
 }
 
 // медиа запросы
+@media (max-width: 2000px) {
+	.container {
+		max-width: 960px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.container {
+		max-width: 960px;
+	}
+}
 
 @media (max-width: 992px){
 	.container {
@@ -874,6 +908,14 @@ footer {
 	}
 	.servis__content__img {
 		margin: 30px !important;
+	}
+	.calc .calc-img {
+		width: 70%;
+		margin: 50px 0 0 0;
+	}
+	.calc__wrap {
+		flex-direction: column;
+		align-items: center;
 	}
 }
 @media (max-width: 576px){
@@ -921,11 +963,11 @@ footer {
 	.servis__content .circle-small-active {
 		transform: translate(17px, -25px);
 	}
-	.calc .panel-collapse .amount__children {
-		padding: 0;
-	}
 	.calc .calc-img {
-		margin: 90px 0 0 0;
+		margin: 40px 0 0 0;
+	}
+	.input-normal {
+		margin: 5px 0px !important;
 	}
 }
 

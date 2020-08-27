@@ -104,12 +104,12 @@ $(document).ready(function() {
                 const div = document.createElement('li');
                 if (i < 3) {
                     div.innerHTML = `<span>Возраст ${i}-ого ребенка</span>
-                    <input style="width: 80%;" class="input-normal" name="child_age${i}" class="childAgeUnico" type="text">
+                    <input style="width: 80%;" class="childAgeUnico input-normal" name="child_ages" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 } else {
                     div.innerHTML = `<span>Возраст ${i}-eго ребенка</span>
-                    <input style="width: 80%;" class="input-normal" name="child_age${i}" class="childAgeUnico" type="text">
+                    <input style="width: 80%;" class="childAgeUnico input-normal" name="child_ages" type="text">
                     <span class="form-error">Введите цифру меньше 12</span>`;
                     childAge.appendChild(div)
                 }
@@ -134,11 +134,21 @@ $(document).ready(function() {
     }
 
     const formValidation = (form) => {
+        let formData = {};
+        formData.formName = form.name
         for (let i = 0; i < form.length; i++) {
             if (form[i].nodeName === 'INPUT' && form[i].type !== 'checkbox') {
-                console.log(form[i].value)
+                if (form[i].validity.typeMismatch) {
+                    form[i].setCustomValidity("I expect an e-mail, darling!");
+                } else {
+                    form[i].setCustomValidity("");
+                }
+                // if (form[i].name === 'cityFrom') {
+                //     console.log(form[i].value)
+                // }
             }
         }
+        console.log(formData)
     };
 
 
@@ -257,7 +267,7 @@ $(document).ready(function() {
     quantityPers.addEventListener('change', (event) => {
         const regExp = /\D/g;
         const target = event.target;
-        if (target.value.match(regExp)) {
+        if (target.value.match(regExp) || target.value < 1) {
             target.value = 0;
             errorMessage('show', target);
            
@@ -313,11 +323,16 @@ $(document).ready(function() {
 
     calculation.addEventListener('click', () => {
         totalPrice.value = calcPriceTaxi();
+        totalPrice.scrollIntoView({
+            block: 'center',
+            behavior: "smooth"
+        });
     });
 
     allForms.forEach(form => {
         form.addEventListener('click', (event) => {
             if (event.target.type ==='submit') {
+                console.log(form.value);
                 formValidation(form);
             }
         });
