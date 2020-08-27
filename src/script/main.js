@@ -134,11 +134,21 @@ $(document).ready(function() {
     }
 
     const formValidation = (form) => {
+        let formData = {};
+        formData.formName = form.name
         for (let i = 0; i < form.length; i++) {
             if (form[i].nodeName === 'INPUT' && form[i].type !== 'checkbox') {
-                console.log(form[i].value)
+                if (form[i].validity.typeMismatch) {
+                    form[i].setCustomValidity("I expect an e-mail, darling!");
+                } else {
+                    form[i].setCustomValidity("");
+                }
+                // if (form[i].name === 'cityFrom') {
+                //     console.log(form[i].value)
+                // }
             }
         }
+        console.log(formData)
     };
 
 
@@ -257,7 +267,7 @@ $(document).ready(function() {
     quantityPers.addEventListener('change', (event) => {
         const regExp = /\D/g;
         const target = event.target;
-        if (target.value.match(regExp)) {
+        if (target.value.match(regExp) || target.value < 1) {
             target.value = 0;
             errorMessage('show', target);
            
@@ -313,6 +323,10 @@ $(document).ready(function() {
 
     calculation.addEventListener('click', () => {
         totalPrice.value = calcPriceTaxi();
+        totalPrice.scrollIntoView({
+            block: 'center',
+            behavior: "smooth"
+        });
     });
 
     allForms.forEach(form => {
