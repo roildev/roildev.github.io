@@ -69,7 +69,7 @@ $mail->Port = 465;
 
 $mail->From = 'sunduck248@gmail.com'; // от кого будет уходить письмо?
 $mail->FromName = 'Site LetsGo';
-$mail->addAddress('sebepay138@sanizr.com');     // Кому будет уходить письмо 
+$mail->addAddress('nebiyo3794@99mimpi.com');     // Кому будет уходить письмо 
 // //$mail->addAddress('ellen@example.com');               // Name is optional
 // //$mail->addReplyTo('info@example.com', 'Information');
 // //$mail->addCC('cc@example.com');
@@ -109,9 +109,9 @@ switch ($template) {
 
 
 
-if($mail->send()) {
-    echo 'Message sent!';
-} else {
-    echo 'error: ' . $mail->ErrorInfo;
-}
+// if($mail->send()) {
+//     echo 'Message sent!';
+// } else {
+//     echo 'error: ' . $mail->ErrorInfo;
+// }
 ?>

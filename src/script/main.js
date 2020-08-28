@@ -143,12 +143,12 @@ $(document).ready(function() {
         }
     }
 
-    const postData = (formData) => fetch('../mail-send.php', {
+    const postData = (body) => fetch('../src/mail-send.php', {
         method: 'POST',
         headers: {
-            'Content-type': 'application/json'
+            'Content-Type': 'application/json;charset=utf-8'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(body)
     });
 
     
@@ -375,6 +375,12 @@ $(document).ready(function() {
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
+            // console.log(form)
+            // if (event.target.type ==='submit') {
+            //     console.log(form.value);
+            //     formValidation(form);
+            // }
+
             const formData = new FormData(form);
             let body = {};
     
@@ -384,7 +390,7 @@ $(document).ready(function() {
             formData.forEach((val, key) => {
                 body[key] = val;
             });
-            // console.log(body)
+            console.log(JSON.stringify(body))
     
             postData(body)
                 .then(response => {
@@ -395,11 +401,7 @@ $(document).ready(function() {
                     setTimeout(() => {
                         statusMessage.textContent = '';
                     }, 5000);
-    
-                    for (let i = 0; i < allInputs.length; i++) {
-                        allInputs[i].value = '';
-                    }
-    
+                         
                     form.reset();
                 })
                 .catch(error => {
@@ -409,13 +411,7 @@ $(document).ready(function() {
                     }, 5000);
                     console.error(error);
                 });
-            // console.log('body: ', body);
-
-            // console.log(form)
-            // if (event.target.type ==='submit') {
-            //     console.log(form.value);
-            //     formValidation(form);
-            // }
+            
         });
     })
 
