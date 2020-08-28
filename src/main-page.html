@@ -192,7 +192,29 @@
                                     <input name="price_total" style="width: 200px; margin-left: 20px;" class="input-normal" id="total-price" type="text" readonly>
                                 </div>
                                 
-                                <button id="submit-form-calc" type="submit" class="button-dark">Заказать</button>
+                                <button type="button" class="button-dark open-popup" name="calc">Заказать</button>
+
+                                <div title="calc" id="popup_accord" class="popup">
+                                    <div class="popup__body">
+                                        <div class="popup__content">
+                                            <div class="popup__close close-popup">
+                                                <img style="width: 15px;" src="images/other/cancel.png" alt="" srcset="">
+                                            </div>
+                                            <div class="popup__title">Укажите контакты для обратной связи</div>
+                                            <div name="order_taxi_calc" class="popup__form">
+                                                <input class="input-normal" type="text" placeholder="Город прилёта">
+                                                <input class="input-normal" type="text" placeholder="Место назначения">
+                                                <input class="input-normal" type="text" placeholder="Ваш телефон">
+                                                <input class="input-normal" type="text" placeholder="Ваше имя">
+                                                <button class="button-dark" type="submit">Заказать</button>
+                                                <span class="thanks-mesage">
+                                                    Спасибо за заявку! С вами скоро свяжутся
+                                               </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                </div>
                             </input>
                         </div>
 
@@ -250,7 +272,7 @@
                         </div>
                         <span class="alicante">Аликанте</span>
                         <span class="torrevieja">Торревьеха</span>
-                        <a href="#popup">Позвоните мне</a>
+                        <button class="open-popup">Позвоните мне</button>
                     </div>
                     <div class="rent">
                         <h4>
@@ -259,7 +281,7 @@
                         <span>
                             999999999
                         </span>
-                        <a href="#modal">Позвоните мне</a>
+                        <button class="open-popup">Позвоните мне</button>
                     </div>
                     <form name="question" class="question">
                         <h4>
@@ -282,7 +304,7 @@
     
         <!-- модальные окна -->
     
-        <div id="popup" class="popup">
+        <!-- <div id="popup" class="popup">
             <a href="#header" class="popup__area"></a>
             <div class="popup__body">
                 <div class="popup__content">
@@ -327,7 +349,7 @@
                 </div>
     
             </div>
-        </section>
+        </section> -->
     
         <div class="arrow-up" id="arrow-up">
             <img src="images/other/up-arrow.png" alt="" srcset="">
