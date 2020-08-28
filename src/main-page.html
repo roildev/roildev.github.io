@@ -34,7 +34,7 @@
                             <form name="order_taxi"  class="phone-form__input">
                                 <input maxlength="30" class="input-normal form-control" type="text" placeholder="Город прилёта">
                                 <input maxlength="30" class="input-normal form-control" type="text" placeholder="Место назначения">
-                                <input class="input-normal form-control" type="text" placeholder="Ваш телефон" pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" required>
+                                <input class="input-normal form-control" type="text" placeholder="Ваш телефон" required>
                                 <div class="phone-form__button">
     
                                     <button style="padding: 8px; width: 80%;"
@@ -84,7 +84,7 @@
         </section>
     
         <section class="calc">
-            <form name="calc_price_taxi" action="mail-send.php" method="POST">
+            <form name="calc_price_taxi">
                 <div class="container">
                     <div class="calc__wrap">
                             
@@ -202,6 +202,7 @@
                                             </div>
                                             <div class="popup__title">Укажите контакты для обратной связи</div>
                                             <div name="order_taxi_calc" class="popup__form">
+                                                <input style="display: none;" value="calc" name="template" type="text" readonly>
                                                 <input name="city_from" class="input-normal" type="text" placeholder="Город прилёта">
                                                 <input name="city_to" class="input-normal" type="text" placeholder="Место назначения">
                                                 <input name="customer_phone" class="input-normal" type="text" placeholder="Ваш телефон">
@@ -272,7 +273,7 @@
                         </div>
                         <span class="alicante">Аликанте</span>
                         <span class="torrevieja">Торревьеха</span>
-                        <button class="open-popup">Позвоните мне</button>
+                        <button name="order_taxi" class="open-popup">Позвоните мне</button>
                     </div>
                     <div class="rent">
                         <h4>
@@ -281,7 +282,7 @@
                         <span>
                             999999999
                         </span>
-                        <button class="open-popup">Позвоните мне</button>
+                        <button name="rent_car" class="open-popup">Позвоните мне</button>
                     </div>
                     <form name="question" class="question">
                         <h4>
@@ -304,17 +305,18 @@
     
         <!-- модальные окна -->
     
-        <!-- <div id="popup" class="popup">
+        <div title="order_taxi" id="popup" class="popup">
             <a href="#header" class="popup__area"></a>
             <div class="popup__body">
                 <div class="popup__content">
                     <a href="#header" class="popup__close close-popup">X</a>
                     <div class="popup__title">Заказать трансфер</div>
-                    <form name="order_taxi" class="popup__form">
-                        <input class="input-normal" type="text" placeholder="Город прилёта">
-                        <input class="input-normal" type="text" placeholder="Место назначения">
-                        <input class="input-normal" type="text" placeholder="Ваш телефон">
-                        <input class="input-normal" type="text" placeholder="Ваше имя">
+                    <form class="popup__form">
+                        <input style="display: none;" value="order_taxi" name="template" type="text" readonly>
+                        <input name="city_from" class="input-normal" type="text" placeholder="Город прилёта">
+                        <input name="city_to" class="input-normal" type="text" placeholder="Место назначения">
+                        <input name="customer_phone" class="input-normal" type="text" placeholder="Ваш телефон">
+                        <input name="customer_name"class="input-normal" type="text" placeholder="Ваше имя">
                         <button class="button-dark" type="submit">Заказать</button>
                         <span class="thanks-mesage">
                             Спасибо за заявку! С вами скоро свяжутся
@@ -327,7 +329,7 @@
     
     
         <section class="rent-car">
-            <div id="modal" class="popup">
+            <div title="rent_car" id="modal" class="popup">
                 <a href="#header" class="popup__area"></a>
                 <div class="popup__body">
                     <div class="popup__content">
@@ -335,11 +337,12 @@
                             <img style="width: 15px;" src="images/other/cancel.png" alt="" srcset="">
                         </a>
                         <div class="popup__title">Арендовать авто</div>
-                        <form name="rent_car" class="popup__form">
-                            <input class="input-normal" type="text" placeholder="Город">
-                            <input class="input-normal" type="text" placeholder="Колличество суток">
-                            <input class="input-normal" type="text" placeholder="Ваш телефон">
-                            <input class="input-normal" type="text" placeholder="Ваше имя">
+                        <form class="popup__form">
+                            <input style="display: none;" value="rent_car" name="template" type="text" readonly>
+                            <input name="city" class="input-normal" type="text" placeholder="Город">
+                            <input name="quantity_days" class="input-normal" type="text" placeholder="Колличество суток">
+                            <input name="customer_phone" class="input-normal" type="text" placeholder="Ваш телефон">
+                            <input name="customer_name" class="input-normal" type="text" placeholder="Ваше имя">
                             <button class="button-dark" type="submit">Узнать цену</button>
                             <span class="thanks-mesage">
                                 Спасибо за заявку! С вами скоро свяжутся
@@ -349,7 +352,7 @@
                 </div>
     
             </div>
-        </section> -->
+        </section>
     
         <div class="arrow-up" id="arrow-up">
             <img src="images/other/up-arrow.png" alt="" srcset="">
