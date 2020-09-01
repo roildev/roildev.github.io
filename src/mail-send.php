@@ -8,6 +8,27 @@ require_once "PHPMailer/Exception.php";
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
 
+
+$contentType = isset($_SERVER["body"]) ?
+    trim($_SERVER["body"]) : '';
+
+if ($contentType === "application/json") {
+  //Receive the RAW post data.
+  $content = trim(file_get_contents("php://input"));
+
+  $decoded = json_decode($content, true);
+
+  //If json_decode failed, the JSON is invalid.
+  if(! is_array($decoded)) {
+
+  } else {
+    // Send error back to user.
+  }
+}
+$content[] = trim(file_get_contents("php://input"));
+$decode = json_encode($content);
+echo $decode;
+
 // calc
 $season = $_POST['season'];
 $distance = $_POST['distance'];
@@ -28,6 +49,7 @@ $city = $_POST['city'];
 $quantity_days = $_POST['quantity_days'];
 
 // universal 
+$body = $_GET['body'];
 $customer_phone = $_POST['customer_phone'];
 $customer_name = $_POST['customer_name'];
 $template = $_POST['template'];
@@ -69,7 +91,7 @@ $mail->Port = 465;
 
 $mail->From = 'sunduck248@gmail.com'; // от кого будет уходить письмо?
 $mail->FromName = 'Site LetsGo';
-$mail->addAddress('nebiyo3794@99mimpi.com');     // Кому будет уходить письмо 
+$mail->addAddress('yiltovorza@enayu.com');     // Кому будет уходить письмо 
 // //$mail->addAddress('ellen@example.com');               // Name is optional
 // //$mail->addReplyTo('info@example.com', 'Information');
 // //$mail->addCC('cc@example.com');
@@ -80,31 +102,34 @@ $mail->isHTML(true);                                  // Set email format to HTM
 
 
 
-switch ($template) {
-    case 'calc':
-        $mail->Subject = 'Заказ такси ' . $season;
+// switch ($template) {
+//     case 'calc':
+//         $mail->Subject = 'Заказ такси ' . $season;
 
-        $mail->Body = $season . ' хотят заказать трансфер - <b>' . $quantity . ' человек </b>' . '<br>' . $wait . ' их будет ждать примерно ' . $wait_time . '<br> Им нужно будет проехать примерно: <b>' . $distance . 'км. </b>' . '<br> У них ' . $childs_availible . '<br> Калькулятор на сайте насчитал - <b>' . $price_total . 'евро. </b> <br><br> Город прилета: ' . $city_from . '<br> Место назначения: ' . $city_to . '<br> Телефон: ' . $customer_phone . '<br> Имя: ' . $customer_name . '<br><br>';
+//         $mail->Body = $season . ' хотят заказать трансфер - <b>' . $quantity . ' человек </b>' . '<br>' . $wait . ' их будет ждать примерно ' . $wait_time . '<br> Им нужно будет проехать примерно: <b>' . $distance . 'км. </b>' . '<br> У них ' . $childs_availible . '<br> Калькулятор на сайте насчитал - <b>' . $price_total . 'евро. </b> <br><br> Город прилета: ' . $city_from . '<br> Место назначения: ' . $city_to . '<br> Телефон: ' . $customer_phone . '<br> Имя: ' . $customer_name . '<br><br>';
 
 
-        $mail->AltBody = $season . ' хотят заказать трансфер - ' . $quantity . ' человек' .  $wait . ' их будет ждать' . $wait_time . 'Им нужно будет проехать примерно: ' . $distance . 'км. ' . 'У них ' . $childs_availible . 'Калькулятор на сайте насчитал - ' . $price_total . 'евро. Город прилета: ' . $city_from . ' Место назначения: ' . $city_to . ' Телефон: ' . $customer_phone . ' Имя: ' . $customer_name;
-        break;
+//         $mail->AltBody = $season . ' хотят заказать трансфер - ' . $quantity . ' человек' .  $wait . ' их будет ждать' . $wait_time . 'Им нужно будет проехать примерно: ' . $distance . 'км. ' . 'У них ' . $childs_availible . 'Калькулятор на сайте насчитал - ' . $price_total . 'евро. Город прилета: ' . $city_from . ' Место назначения: ' . $city_to . ' Телефон: ' . $customer_phone . ' Имя: ' . $customer_name;
+//         break;
 
-    case 'order_taxi':
-        $mail->Subject = "Заявка на заказ трансфера!";
-        $mail->Body = 'Неизвестное количество людей хочет заказать трансфер. <br> <b>Из ' . $city_from . ' в ' . $city_to . '</b> <br> Телефон: <a>' . $customer_phone . '</a><br> Имя: ' . $customer_name;
+//     case 'order_taxi':
+//         $mail->Subject = "Заявка на заказ трансфера!";
+//         $mail->Body = 'Неизвестное количество людей хочет заказать трансфер. <br> <b>Из ' . $city_from . ' в ' . $city_to . '</b> <br> Телефон: <a>' . $customer_phone . '</a><br> Имя: ' . $customer_name;
 
-        $mail->AltBody = 'Неизвестное количество людей хочет заказать трансфер. Из ' . $city_from . ' в ' . $city_to . ' Телефон: ' . $customer_phone . ' Имя: ' . $customer_name;
-        break;
+//         $mail->AltBody = 'Неизвестное количество людей хочет заказать трансфер. Из ' . $city_from . ' в ' . $city_to . ' Телефон: ' . $customer_phone . ' Имя: ' . $customer_name;
+//         break;
 
-    case 'rent_car':
-        $mail->Subject = "Заявка на аренду авто!";
+//     case 'rent_car':
+//         $mail->Subject = "Заявка на аренду авто!";
 
-        $mail->Body = 'Есть желающие взять авто в аренду. <b>В городе: ' . $city . '</b>. <br> На срок около ' .$quantity_days . ' суток. <br><br> Их телефон: ' .  $customer_phone . '<br> Имя: ' . $customer_name;
+//         $mail->Body = 'Есть желающие взять авто в аренду. <b>В городе: ' . $city . '</b>. <br> На срок около ' .$quantity_days . ' суток. <br><br> Их телефон: ' .  $customer_phone . '<br> Имя: ' . $customer_name;
 
-        $mail->AltBody = 'Есть желающие взять авто в аренду. В городе: ' . $city . '. На срок около ' .$quantity_days . ' суток. Их телефон: ' .  $customer_phone . ' Имя: ' . $customer_name;
-        break;
-}
+//         $mail->AltBody = 'Есть желающие взять авто в аренду. В городе: ' . $city . '. На срок около ' .$quantity_days . ' суток. Их телефон: ' .  $customer_phone . ' Имя: ' . $customer_name;
+//         break;
+// }
+$mail->Subject = "Заявка на аренду авто!";
+
+$mail->Body = 'XAXA' . $content[0].["city"];
 
 
 

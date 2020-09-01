@@ -292,6 +292,9 @@ h1.title {
 .calc__wrap {
   display: flex;
 }
+.calc .panel {
+  width: 350px;
+}
 .calc .panel-group {
   border-radius: 10px;
   overflow: hidden;
