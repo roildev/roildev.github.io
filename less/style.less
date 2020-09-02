@@ -99,13 +99,13 @@
     color: #3E3E3E;
 	margin: 5px 0;
 	font-size: 18px;
-	&:invalid {
-		border: 1px solid #f59a9a;
-    	background-color: #fde9e9;
+	&-invalid {
+		border-bottom: 2px solid #f59a9a;
+		background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,180,180,0.5976470588235294) 100%);
 	}
-	&:valid {
-		border: 1px solid #96c596;
-		background-color: #e0f5e0;
+	&-valid {
+		border-bottom: 2px solid #96c596;
+		background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(196,241,201,0.5976470588235294) 100%);
 	}
 }
 .input-main {
@@ -721,10 +721,13 @@ footer {
 // формы
 
 .form-error {
-	display: none;
 	color: #F53B3B;
-    font-weight: 500;
+    font-weight: 600;
     font-style: italic;
+    text-align: left;
+    width: 100%;
+    padding-left: 30px;
+    font-size: 12px;
 }
 
 //модальное окно заказать трансфер

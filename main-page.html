@@ -32,9 +32,11 @@
                                 </span>
                             </div>
                             <form name="order_taxi"  class="phone-form__input">
-                                <input maxlength="30" class="input-normal form-control" type="text" placeholder="Город прилёта">
-                                <input maxlength="30" class="input-normal form-control" type="text" placeholder="Место назначения">
-                                <input class="input-normal form-control" type="text" placeholder="Ваш телефон" required>
+                                <input style="display: none;" value="order_taxi" name="template" type="text" readonly>
+                                <input name="city_from" maxlength="30" class="input-normal form-control" type="text" placeholder="Город прилёта">
+                                <input name="city_to" maxlength="30" class="input-normal form-control" type="text" placeholder="Место назначения">
+                                <input name="customer_phone" class="input-normal form-control" type="text" placeholder="Ваш телефон">
+                                <span class="form-error"></span>
                                 <div class="phone-form__button">
     
                                     <button style="padding: 8px; width: 80%;"
