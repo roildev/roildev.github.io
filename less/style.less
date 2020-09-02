@@ -174,7 +174,7 @@ h1.title{
 		.logo {
 			padding: 10px 20px 20px 20px;
 			margin: 5px 0px 5px 20px;
-			width: 150px;
+			width: 110px;
 			background: @table-body;
 			border-radius: 50%;
 		 	img {
@@ -597,6 +597,7 @@ footer {
 	margin-top: auto;
 	background-color: @header-footer;	
 	color: @text-light;
+	padding-top: 20px;
 	.container {
 		.row {
 			display: flex;
@@ -655,6 +656,7 @@ footer {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				width: 40%;
 				h4 {
 					margin: 15px;
 				}
@@ -670,7 +672,12 @@ footer {
 					padding: 25px;
 				}
 
-			}			
+			}		
+			.wrap-footer-flex {
+				display: flex;
+				justify-content: space-around;
+				width: 60%;
+			}	
 		}
 		.futer-logo {
 			width: 130px;
@@ -880,9 +887,30 @@ footer {
 }
 
 // медиа запросы
-@media (max-width: 2000px) {
+@media (max-width: 3000px) {
 	.container {
 		max-width: 960px;
+	}
+	.wrapper {
+		padding: 0px 400px;
+		.slider {
+			.slick-list{
+				.slick-track {
+					height: 550px;
+				}
+			}
+			.slick-slide {
+				img {
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1700px) {
+	.wrapper {
+		padding: 0px 200px;
 	}
 }
 
@@ -890,11 +918,41 @@ footer {
 	.container {
 		max-width: 960px;
 	}
+	.wrapper {
+		padding: 0px 100px;
+		.slider {
+			.slick-list{
+				.slick-track {
+					height: 550px;
+				}
+			}
+			.slick-slide {
+				img {
+					height: 100%;
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: 992px){
 	.container {
 		max-width: 960px;
+	}
+	.wrapper {
+		padding: 0px 30px;
+		.slider {
+			.slick-list{
+				.slick-track {
+					height: 500px;
+				}
+			}
+			.slick-slide {
+				img {
+					height: 100%;
+				}
+			}
+		}
 	}
 }
 @media(max-width: 768px) {
@@ -925,10 +983,36 @@ footer {
 		flex-direction: column;
 		align-items: center;
 	}
+	.wrapper {
+		padding: 0px 30px;
+		.slider {
+			.slick-list{
+				.slick-track {
+					height: 300px;
+				}
+			}
+			.slick-slide {
+				img {
+					height: 100%;
+				}
+			}
+		}
+	}
 }
 @media (max-width: 576px){
     .container {
 		max-width: 540px;
+	}
+	footer .container .row {
+		flex-direction: column;
+		align-items: center;
+	}
+	footer .container .row .question {
+		margin-top: 30px;
+		width: 100%;
+	}
+	footer .container .row .wrap-footer-flex {
+		width: 100%;
 	}
 }
 @media (max-width: 500px){
@@ -977,5 +1061,17 @@ footer {
 	.input-normal {
 		margin: 5px 0px !important;
 	}
+	footer .container .row .wrap-footer-flex {
+		flex-direction: column;
+		align-items: center;
+	}
+	footer .container .row .rent {
+		margin-top: 30px;
+	}
+	footer .container .row .rent span {
+		margin: 0 0 15px 0;
+	}
 }
+
+
 

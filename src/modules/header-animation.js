@@ -3,7 +3,8 @@ const headerAnimation = () => {
     // Variables
 
     const header = document.getElementById('header'),
-       arrowUp = document.getElementById('arrow-up');
+       arrowUp = document.getElementById('arrow-up'),
+       logo = document.querySelector('.logo');
     
     let arrowShow = false;
     
@@ -25,6 +26,12 @@ const headerAnimation = () => {
         }
         if (!!arrowShow) {
             arrowUp.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+            logo.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
