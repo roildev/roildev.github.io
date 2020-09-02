@@ -806,11 +806,19 @@ footer .container .futer-logo img {
   .container {
     max-width: 960px;
   }
+  .main .header {
+    height: 50px;
+  }
+  .main .header .logo {
+    padding: 5px 10px 10px 10px;
+    margin: 5px 0px 5px 10px;
+    width: 70px;
+  }
   .wrapper {
     padding: 0px 30px;
   }
   .wrapper .slider .slick-list .slick-track {
-    height: 500px;
+    height: 320px;
   }
   .wrapper .slider .slick-slide img {
     height: 100%;
@@ -889,10 +897,6 @@ footer .container .futer-logo img {
   }
   .main .phone-form__heading {
     padding: 15px 10px;
-  }
-  .main .header .logo {
-    padding: 10px 20px 15px 20px;
-    width: 80px;
   }
   .servis__wrap {
     flex-direction: column;
