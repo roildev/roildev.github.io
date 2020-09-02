@@ -95,6 +95,16 @@
   font-weight: 600;
   text-align: center;
 }
+.form-error {
+  display: none;
+  color: #F53B3B;
+  font-weight: 600;
+  font-style: italic;
+  text-align: left;
+  width: 100%;
+  padding-left: 30px;
+  font-size: 12px;
+}
 html {
   height: 100%;
 }
@@ -635,15 +645,6 @@ footer .container .futer-logo img {
 .arrow-up:hover {
   background: #0163d2;
   opacity: 1;
-}
-.form-error {
-  color: #F53B3B;
-  font-weight: 600;
-  font-style: italic;
-  text-align: left;
-  width: 100%;
-  padding-left: 30px;
-  font-size: 12px;
 }
 .popup {
   position: fixed;
