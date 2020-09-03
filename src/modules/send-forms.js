@@ -1,33 +1,69 @@
 const sendForms = () => {
+    
+
+    $('.phone-valid').each(function() {
+        
+        $(this).intlTelInput({
+            initialCountry: "auto",
+            geoIpLookup: function(callback) {
+                jQuery.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                    const countryCode = (resp && resp.country) ? resp.country : 'ES';
+                    callback(countryCode)
+                });
+            },
+            autoFormat: false,
+            nationalMode: false,
+            preferredCountries: ["ru", "ua", "es", "lt", "lv", "bg"],
+            utilsScript: 'src/script/utils.js'
+        });
+
+
+        $(this).on('input', function() {
+            let value = $(this).val();
+            value = value.replace(/[^\d\/+]/g, '');
+            $(this).val(value);
+        });
+    });
 
     $('form').each(function() {
         $(this).submit(function() {
             let errors = false;
-            $(this).find('.form-error').css("display", "none");
+            const errorMessage = $(this).find('.form-error');
+            errorMessage.css("display", "none");
             $(this).find('.input-normal').removeClass('input-normal-invalid');
 
             $(this).find('input, textarea').each(function () {
-                if($.trim($(this).val()) == '') {
+                let regExp = /^\d+$/;
+
+                if($.trim($(this).val()) == '' && $(this).hasClass('required') ||
+                    $.trim($(this).val()) == regExp && $(this).attr('type') === 'tel') {
                     errors = true;
-                    $(this).addClass('input-normal-invalid');
-                    if ($(this).next()[0].nodeName === 'SPAN') {
-                        console.log($(this).next())
-                        $(this).next().css("display", "block");
+                    if ($(this).hasClass('required')) {
+                        $(this).addClass('input-normal-invalid');
+                        errorMessage.css("display", "block");
                     };
                 }
             });
 
             if (!errors) {
+                const thanks = $( this ).find('.thanks-mesage');
                 const dataForm = $( this ).serialize();
                 $.ajax({
                     url: '../src/mail-send.php',
                     type: 'POST',
                     data: dataForm,
                     success: function(result) {
-
+                        thanks.css('display', 'block');
+                        setTimeout(function(){
+                            thanks.css('display', 'none');
+                        }, 5000);
                     },
                     error: function() {
-                        alert('Error');
+                        console.log('Error');
+                        thanks.css('display', 'block');
+                        setTimeout(function(){
+                            thanks.css('display', 'none');
+                        }, 5000);
                     }
                 });
             }
@@ -35,118 +71,6 @@ const sendForms = () => {
             return false;
         });
     });
-
-
-
-
-
-
-
-
-
-   /*
-    
-    // Variables
-
-    const formErrorMessage = document.querySelectorAll('.form-error'),
-        allForms = document.querySelectorAll('form'),
-        errorMessage = 'Что-то пошло не так...',
-        loadMessage = 'Загрузка...',
-        successMessage = 'Спасибо мы скоро с Вами свяжемся!',
-        statusMessage = document.createElement('div');
- 
-    statusMessage.style.cssText = 'font-size: 2rem';
-    statusMessage.style.color = '#19b5fe';;;
-
-    // Functions
-
-    const postData1 = (body) => fetch('./src/mail-send.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(body)
-    });
-
-    const postData = (body) => {
-        console.log(body)
-        return fetch('../src/mail-send.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        });
-    }
- 
-    
-    const formValidation = (form) => {
-        let formData = {};
-        formData.formName = form.name
-        for (let i = 0; i < form.length; i++) {
-            if (form[i].nodeName === 'INPUT' && form[i].type !== 'checkbox') {
-                if (form[i].validity.typeMismatch) {
-                    form[i].setCustomValidity("I expect an e-mail, darling!");
-                } else {
-                    form[i].setCustomValidity("");
-                }
-                // if (form[i].name === 'cityFrom') {
-                //     console.log(form[i].value)
-                // }
-            }
-        }
-        console.log(formData)
-    };
-
-    // Listeners
-
-    allForms1.forEach(form => {
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
- 
-            console.log(form)
-            // if (event.target.type ==='submit') {
-            //     console.log(form.value);
-            //     formValidation(form);
-            // }
- 
-            const formData = new FormData(form);
-            let body = {};
-    
-            form.appendChild(statusMessage);
-            statusMessage.textContent = loadMessage;
-    
-            formData.forEach((val, key) => {
-                body[key] = val;
-            });
-            console.log(body)
-    
-            postData(body)
-                .then(response => {
-                    if (response.status !== 200) {
-                        console.log(response);
-                        throw new Error('status network not 200');
-                    }
-                    console.log(response);
-                    statusMessage.textContent = successMessage;
-                    setTimeout(() => {
-                        statusMessage.textContent = '';
-                    }, 5000);
-                         
-                    form.reset();
-                })
-                .catch(error => {
-                    statusMessage.textContent = errorMessage;
-                    setTimeout(() => {
-                        statusMessage.textContent = '';
-                    }, 5000);
-                    console.error(error);
-                });
-            
-        });
-    });
-
-    */
 };
 
 export default sendForms;

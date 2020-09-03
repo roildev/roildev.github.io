@@ -105,6 +105,10 @@
   padding-left: 30px;
   font-size: 12px;
 }
+.iti {
+  width: 91% !important;
+  margin-top: 5px !important;
+}
 html {
   height: 100%;
 }

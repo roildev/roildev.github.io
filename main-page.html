@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lets go</title>
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="src/css/intlTelInput.css">
     <link rel="stylesheet" href="src/css/style.css">
     <meta name="viewport" content="width=device-width">
 </head>
@@ -17,7 +17,9 @@
                     <img src="src/images/header/logo.png" alt="">
                 </div>
                 <div class="phone-form__call">
-                    <a href="#">+999999999</a>
+                    <a href="https://api.whatsapp.com/send?text=Здравствуйте, мы бы хотели заказать трансфер &phone=+34602549778">
+                        +34 602 54 97 78
+                    </a>
                 </div>
             </div>
             <div class="main-body">
@@ -33,9 +35,11 @@
                             </div>
                             <form name="order_taxi"  class="phone-form__input">
                                 <input style="display: none;" value="order_taxi" name="template" type="text" readonly>
-                                <input name="city_from" maxlength="30" class="input-normal form-control" type="text" placeholder="Город прилёта">
-                                <input name="city_to" maxlength="30" class="input-normal form-control" type="text" placeholder="Место назначения">
-                                <input name="customer_phone" class="input-normal form-control" type="text" placeholder="Ваш телефон">
+                                <input name="city_from" maxlength="30" class="input-normal form-control required" type="text" placeholder="Город прилёта">
+                                <span class="form-error">Укажите город прилета</span>
+                                <input name="city_to" maxlength="30" class="input-normal form-control required" type="text" placeholder="Место назначения">
+                                <span class="form-error">Укажите место назначения</span>
+                                <input style="width: 100%;height: 46px;"  name="customer_phone" class="input-normal form-control required phone-valid" type="tel">
                                 <span class="form-error">Введите номер телефона</span>
                                 <div class="phone-form__button">
     
@@ -45,7 +49,7 @@
                                         ЗАКАЗАТЬ</button>
     
                                 </div>
-                                <!-- <span class="thanks-mesage">Спасибо за заявку! С вами скоро свяжутся</span> -->
+                                <span class="thanks-mesage">Спасибо за заявку! С вами скоро свяжутся</span>
                             </form>
                         </div>
                     </div>
@@ -123,7 +127,7 @@
                                     <span class="head-span">Расстояние (км)</span>
                                 </div>
                                 <div class="panel-collapse">
-                                    <input class="input-normal" name="distance" id="distance" type="text" required>
+                                    <input class="input-normal required" name="distance" id="distance" type="text">
                                     <span class="form-error">Введите цифру (не более 600)</span>
                                 </div>
                             </div>
@@ -157,7 +161,7 @@
                                     <span class="head-span">Колличество человек</span>
                                 </div>
                                 <div class="panel-collapse">
-                                    <input class="input-normal" id="quantity" type="text" name="quantity" required>
+                                    <input class="input-normal required" id="quantity" type="text" name="quantity">
                                     <span class="form-error">Введите цифру (более 0)</span>
                                     <span>Детские кресла</span>
                                     <div class="choice">
@@ -205,9 +209,12 @@
                                             <div class="popup__title">Укажите контакты для обратной связи</div>
                                             <div name="order_taxi_calc" class="popup__form">
                                                 <input style="display: none;" value="calc" name="template" type="text" readonly>
-                                                <input name="city_from" class="input-normal" type="text" placeholder="Город прилёта">
-                                                <input name="city_to" class="input-normal" type="text" placeholder="Место назначения">
-                                                <input name="customer_phone" class="input-normal" type="text" placeholder="Ваш телефон">
+                                                <input name="city_from" class="input-normal required" type="text" placeholder="Город прилёта">
+                                                <span class="form-error">Укажите город прилета</span>
+                                                <input name="city_to" class="input-normal required" type="text" placeholder="Место назначения">
+                                                <span class="form-error">Укажите место назначения</span>
+                                                <input name="customer_phone" class="input-normal required phone-valid" type="text">
+                                                <span class="form-error">Укажите ваш телефон</span>
                                                 <input name="customer_name" class="input-normal" type="text" placeholder="Ваше имя">
                                                 <button class="button-dark" type="submit">Заказать</button>
                                                 <span class="thanks-mesage">
@@ -264,10 +271,16 @@
                                         </g>
                                     </g></g> </svg>
                                 </div>
-                                <div class="contacts__logos__item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" id="Bold" enable-background="new 0 0 24 24" height="512px" viewBox="0 0 24 24" width="512px" class=""><g><path d="m23.155 13.893c.716-6.027-.344-9.832-2.256-11.553l.001-.001c-3.086-2.939-13.508-3.374-17.2.132-1.658 1.715-2.242 4.232-2.306 7.348-.064 3.117-.14 8.956 5.301 10.54h.005l-.005 2.419s-.037.98.589 1.177c.716.232 1.04-.223 3.267-2.883 3.724.323 6.584-.417 6.909-.525.752-.252 5.007-.815 5.695-6.654zm-12.237 5.477s-2.357 2.939-3.09 3.702c-.24.248-.503.225-.499-.267 0-.323.018-4.016.018-4.016-4.613-1.322-4.341-6.294-4.291-8.895.05-2.602.526-4.733 1.93-6.168 3.239-3.037 12.376-2.358 14.704-.17 2.846 2.523 1.833 9.651 1.839 9.894-.585 4.874-4.033 5.183-4.667 5.394-.271.09-2.786.737-5.944.526z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m12.222 4.297c-.385 0-.385.6 0 .605 2.987.023 5.447 2.105 5.474 5.924 0 .403.59.398.585-.005h-.001c-.032-4.115-2.718-6.501-6.058-6.524z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m16.151 10.193c-.009.398.58.417.585.014.049-2.269-1.35-4.138-3.979-4.335-.385-.028-.425.577-.041.605 2.28.173 3.481 1.729 3.435 3.716z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m15.521 12.774c-.494-.286-.997-.108-1.205.173l-.435.563c-.221.286-.634.248-.634.248-3.014-.797-3.82-3.951-3.82-3.951s-.037-.427.239-.656l.544-.45c.272-.216.444-.736.167-1.247-.74-1.337-1.237-1.798-1.49-2.152-.266-.333-.666-.408-1.082-.183h-.009c-.865.506-1.812 1.453-1.509 2.428.517 1.028 1.467 4.305 4.495 6.781 1.423 1.171 3.675 2.371 4.631 2.648l.009.014c.942.314 1.858-.67 2.347-1.561v-.007c.217-.431.145-.839-.172-1.106-.562-.548-1.41-1.153-2.076-1.542z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m13.169 8.104c.961.056 1.427.558 1.477 1.589.018.403.603.375.585-.028-.064-1.346-.766-2.096-2.03-2.166-.385-.023-.421.582-.032.605z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/></g> </svg>
-                                </div>
-                                <a href="#">999999999</a>
+                                <a href="https://api.whatsapp.com/send?text=Здравствуйте, мы бы хотели заказать трансфер &phone=+34602549778">
+                                    <div class="contacts__logos__item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="Bold" enable-background="new 0 0 24 24" height="512px" viewBox="0 0 24 24" width="512px" class=""><g><path d="m23.155 13.893c.716-6.027-.344-9.832-2.256-11.553l.001-.001c-3.086-2.939-13.508-3.374-17.2.132-1.658 1.715-2.242 4.232-2.306 7.348-.064 3.117-.14 8.956 5.301 10.54h.005l-.005 2.419s-.037.98.589 1.177c.716.232 1.04-.223 3.267-2.883 3.724.323 6.584-.417 6.909-.525.752-.252 5.007-.815 5.695-6.654zm-12.237 5.477s-2.357 2.939-3.09 3.702c-.24.248-.503.225-.499-.267 0-.323.018-4.016.018-4.016-4.613-1.322-4.341-6.294-4.291-8.895.05-2.602.526-4.733 1.93-6.168 3.239-3.037 12.376-2.358 14.704-.17 2.846 2.523 1.833 9.651 1.839 9.894-.585 4.874-4.033 5.183-4.667 5.394-.271.09-2.786.737-5.944.526z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m12.222 4.297c-.385 0-.385.6 0 .605 2.987.023 5.447 2.105 5.474 5.924 0 .403.59.398.585-.005h-.001c-.032-4.115-2.718-6.501-6.058-6.524z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m16.151 10.193c-.009.398.58.417.585.014.049-2.269-1.35-4.138-3.979-4.335-.385-.028-.425.577-.041.605 2.28.173 3.481 1.729 3.435 3.716z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m15.521 12.774c-.494-.286-.997-.108-1.205.173l-.435.563c-.221.286-.634.248-.634.248-3.014-.797-3.82-3.951-3.82-3.951s-.037-.427.239-.656l.544-.45c.272-.216.444-.736.167-1.247-.74-1.337-1.237-1.798-1.49-2.152-.266-.333-.666-.408-1.082-.183h-.009c-.865.506-1.812 1.453-1.509 2.428.517 1.028 1.467 4.305 4.495 6.781 1.423 1.171 3.675 2.371 4.631 2.648l.009.014c.942.314 1.858-.67 2.347-1.561v-.007c.217-.431.145-.839-.172-1.106-.562-.548-1.41-1.153-2.076-1.542z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/><path d="m13.169 8.104c.961.056 1.427.558 1.477 1.589.018.403.603.375.585-.028-.064-1.346-.766-2.096-2.03-2.166-.385-.023-.421.582-.032.605z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/></g> </svg>
+                                    </div>
+                                </a>
+                                <a href="https://api.whatsapp.com/send?text=Здравствуйте, мы бы хотели заказать трансфер &phone=+34602549778">
+                                    <span>
+                                        +34 602 54 97 78
+                                    </span>
+                                </a>
                             </div>
                             <span class="alicante">Аликанте</span>
                             <span class="torrevieja">Торревьеха</span>
@@ -277,9 +290,18 @@
                             <h4>
                                 Аренда авто:
                             </h4>
-                            <span>
-                                999999999
-                            </span>
+                            <a style="margin: 0;" href="https://api.whatsapp.com/send?text=Здравствуйте, нам бы хотелось арендовать автомобиль &phone=+34602549778">
+                                <span>
+                                    +34 602 54 97 78
+                                </span>
+                            </a>
+                            <br>
+                            <a style="margin: 0;" href="https://api.whatsapp.com/send?text=Здравствуйте, нам бы хотелось арендовать автомобиль &phone=+34602542296">
+                                <span>
+                                    +34 602 54 22 96
+                                </span>
+                            </a>
+                            <br>
                             <button style="width: 150px;" name="rent_car" class="button-dark open-popup">Позвоните мне</button>
                         </div>
                     </div>
@@ -287,11 +309,14 @@
                         <h4>
                             Задать вопрос:
                         </h4>
-                        <input style="width: 60%;" type="text" class="input-normal" placeholder="Ваш номер телефона">
-                        <textarea style="width: 60%; height: 100px;" class="input-normal" type="text"></textarea>
+                        <input style="width: 60%;" type="text" class="input-normal required" placeholder="Ваш номер телефона">
+                        <span style="width: 60%; padding: 0;" class="form-error">Укажите Ваш телефон</span>
+                        <textarea style="width: 60%; height: 100px;" class="input-normal required" type="text"></textarea>
+                        <span style="width: 60%; padding: 0;" class="form-error">Напишите вопрос</span>
                         <button style="width: 150px;" type="submit" class="button-dark">
                             Отправить
                         </button>
+                        <span class="thanks-mesage">Спасибо за вопрос! <br> Вам скоро ответят</span>
                     </form>
                 </div>
                 <div class="row">
@@ -312,9 +337,12 @@
                     <div class="popup__title">Заказать трансфер</div>
                     <form class="popup__form">
                         <input style="display: none;" value="order_taxi" name="template" type="text" readonly>
-                        <input name="city_from" class="input-normal" type="text" placeholder="Город прилёта">
-                        <input name="city_to" class="input-normal" type="text" placeholder="Место назначения">
-                        <input name="customer_phone" class="input-normal" type="text" placeholder="Ваш телефон">
+                        <input name="city_from" class="input-normal required" type="text" placeholder="Город прилёта">
+                        <span class="form-error">Укажите город прилета</span>
+                        <input name="city_to" class="input-normal required" type="text" placeholder="Место назначения">
+                        <span class="form-error">Укажите место назначения</span>
+                        <input name="customer_phone" class="input-normal required" type="text" placeholder="Ваш телефон">
+                        <span class="form-error">Укажите Ваш телефон</span>
                         <input name="customer_name"class="input-normal" type="text" placeholder="Ваше имя">
                         <button class="button-dark" type="submit">Заказать</button>
                         <span class="thanks-mesage">
@@ -338,9 +366,12 @@
                         <div class="popup__title">Арендовать авто</div>
                         <form class="popup__form">
                             <input style="display: none;" value="rent_car" name="template" type="text" readonly>
-                            <input name="city" class="input-normal" type="text" placeholder="Город">
-                            <input name="quantity_days" class="input-normal" type="text" placeholder="Колличество суток">
-                            <input name="customer_phone" class="input-normal" type="text" placeholder="Ваш телефон">
+                            <input name="city" class="input-normal required" type="text" placeholder="Город">
+                            <span class="form-error">Укажите город</span>
+                            <input name="quantity_days" class="input-normal required" type="text" placeholder="Колличество суток">
+                            <span class="form-error">Укажите количество суток</span>
+                            <input name="customer_phone" class="input-normal required" type="text" placeholder="Ваш телефон">
+                            <span class="form-error">Укажите ваш телефон</span>
                             <input name="customer_name" class="input-normal" type="text" placeholder="Ваше имя">
                             <button class="button-dark" type="submit">Узнать цену</button>
                             <span class="thanks-mesage">
@@ -361,6 +392,7 @@
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="src/script/slick.min.js"></script>
+    <script src="src/script/intlTelInput-jquery.min.js"></script>
     <script src="./dist/main.js"></script>
     
 </body>
