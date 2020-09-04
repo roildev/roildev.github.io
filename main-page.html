@@ -36,11 +36,11 @@
                             <form name="order_taxi"  class="phone-form__input">
                                 <input style="display: none;" value="order_taxi" name="template" type="text" readonly>
                                 <input id="city_from" name="city_from" maxlength="30" class="input-normal form-control required" type="text" placeholder="Город прилёта">
-                                <label for="city_from" class="form-error">Укажите город прилета</label>
+                                <label style="padding-left: 30px; text-align: left;" for="city_from" class="form-error">Укажите город прилета</label>
                                 <input id="city_to" name="city_to" maxlength="30" class="input-normal form-control required" type="text" placeholder="Место назначения">
-                                <label for="city_to" class="form-error">Укажите место назначения</label>
+                                <label style="padding-left: 30px; text-align: left;" for="city_to" class="form-error">Укажите место назначения</label>
                                 <input id="customer_phone" style="width: 101%;height: 46px;"  name="customer_phone" class="input-normal form-control required phone-valid" type="tel">
-                                <label for="customer_phone" class="form-error">Введите номер телефона</label>
+                                <label style="padding-left: 30px; text-align: left;" for="customer_phone" class="form-error">Введите номер телефона</label>
                                 <div class="phone-form__button">
     
                                     <button style="padding: 8px; width: 80%;"
@@ -158,12 +158,12 @@
 
                             <div class="panel panel-default panel-four	">
                                 <div class="panel-heading" role="tab" id="headingFour">
-                                    <span class="head-span">Колличество человек</span>
+                                    <span class="head-span">Общее колличество человек</span>
                                 </div>
                                 <div class="panel-collapse">
                                     <input class="input-normal required" id="quantity" type="text" name="quantity">
                                     <span class="form-error">Введите цифру (более 0)</span>
-                                    <span>Детские кресла</span>
+                                    <span style="margin-top: 10px;">Будут ли дети?</span>
                                     <div class="choice">
                                         <span>Нет</span>
                                         <div class="onoffswitch">
@@ -184,8 +184,9 @@
                                         <ul id="child-age"></ul>
                                     </div>
                                 </div>
-                                <div style="display: flex; justify-content: center;">
-                                    <button type="button" id="calc"  class="button-dark">Рассчитать</button>
+                                <div style="display: flex; flex-direction: column; justify-content: center;">
+                                    <button style="margin: 15px auto;" type="button" id="calc"  class="button-dark">Рассчитать</button>
+                                    <span style="text-align: center; padding: 0;" class="form-error">Нажмите кнопку Рассчитать</span>
                                 </div>
                             </div>
 
@@ -237,7 +238,7 @@
     
         <div class="wrapper">
     
-    
+    <!-- Размеры слайдов должны быть 1020 х 680 !!! -->
             <div class="slider">
                 <div class="slider__item">
                     <img src="src/images/slider/01.jpg" alt="">
@@ -247,6 +248,27 @@
                 </div>
                 <div class="slider__item">
                     <img src="src/images/slider/03.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="src/images/slider/04.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="src/images/slider/05.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="src/images/slider/06.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="src/images/slider/07.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="src/images/slider/08.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="src/images/slider/09.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="src/images/slider/10.jpg" alt="">
                 </div>
             </div>
         
@@ -314,9 +336,11 @@
                         <h4>
                             Задать вопрос:
                         </h4>
-                        <input style="width: 60%;" type="text" class="input-normal required" placeholder="Ваш номер телефона">
-                        <span style="width: 60%; padding: 0;" class="form-error">Укажите Ваш телефон</span>
-                        <textarea style="width: 60%; height: 100px;" class="input-normal required" type="text"></textarea>
+                        <input style="display: none;" value="anonim_question" name="template" type="text" readonly>
+
+                        <input id="customer_phone" style="width: 100%;height: 46px;"  name="customer_phone" class="input-normal form-control required phone-valid" type="tel">
+                        <label for="customer_phone" class="form-error">Укажите Ваш телефон</label>
+                        <textarea name="question" style="width: 80%; height: 100px;" class="input-normal required" type="text"></textarea>
                         <span style="width: 60%; padding: 0;" class="form-error">Напишите вопрос</span>
                         <button style="width: 150px;" type="submit" class="button-dark">
                             Отправить
@@ -338,16 +362,22 @@
             <a href="#header" class="popup__area"></a>
             <div class="popup__body">
                 <div class="popup__content">
-                    <a href="#header" class="popup__close close-popup">X</a>
+                    <a href="#header" class="popup__close close-popup">
+                        <img style="width: 15px;" src="src/images/other/cancel.png" alt="" srcset="">
+                    </a>
                     <div class="popup__title">Заказать трансфер</div>
                     <form class="popup__form">
                         <input style="display: none;" value="order_taxi" name="template" type="text" readonly>
-                        <input name="city_from" class="input-normal required" type="text" placeholder="Город прилёта">
-                        <span class="form-error">Укажите город прилета</span>
-                        <input name="city_to" class="input-normal required" type="text" placeholder="Место назначения">
-                        <span class="form-error">Укажите место назначения</span>
-                        <input name="customer_phone" class="input-normal required" type="text" placeholder="Ваш телефон">
-                        <span class="form-error">Укажите Ваш телефон</span>
+                        <input id="city_from" name="city_from" class="input-normal required" type="text" placeholder="Город прилёта">
+                        <label for="city_from" class="form-error">Укажите город прилета</label>
+                        <input id="city_to" name="city_to" class="input-normal required" type="text" placeholder="Место назначения">
+                        <label for="city_to" class="form-error">Укажите место назначения</label>
+
+                        <input id="customer_phone" style="width: 100%;height: 46px;"  name="customer_phone" class="input-normal form-control required phone-valid" type="tel">
+                        <label for="customer_phone" class="form-error">Укажите Ваш телефон</label>
+
+                        <!-- <input name="customer_phone" class="input-normal required" type="text" placeholder="Ваш телефон">
+                        <span class="form-error">Укажите Ваш телефон</span> -->
                         <input name="customer_name"class="input-normal" type="text" placeholder="Ваше имя">
                         <button class="button-dark" type="submit">Заказать</button>
                         <span class="thanks-mesage">
@@ -371,12 +401,12 @@
                         <div class="popup__title">Арендовать авто</div>
                         <form class="popup__form">
                             <input style="display: none;" value="rent_car" name="template" type="text" readonly>
-                            <input name="city" class="input-normal required" type="text" placeholder="Город">
-                            <span class="form-error">Укажите город</span>
-                            <input name="quantity_days" class="input-normal required" type="text" placeholder="Колличество суток">
-                            <span class="form-error">Укажите количество суток</span>
-                            <input name="customer_phone" class="input-normal required" type="text" placeholder="Ваш телефон">
-                            <span class="form-error">Укажите ваш телефон</span>
+                            <input id="city" name="city" class="input-normal required" type="text" placeholder="Город">
+                            <label for="city" class="form-error">Укажите город</label>
+                            <input id="quantity_days" name="quantity_days" class="input-normal required" type="text" placeholder="Колличество суток">
+                            <label for="quantity_days" class="form-error">Укажите количество суток (только цифры до 30)</label>
+                            <input id="customer_phone" style="width: 100%;height: 46px;"  name="customer_phone" class="input-normal form-control required phone-valid" type="tel">
+                            <label for="customer_phone" class="form-error">Укажите Ваш телефон</label>
                             <input name="customer_name" class="input-normal" type="text" placeholder="Ваше имя">
                             <button class="button-dark" type="submit">Узнать цену</button>
                             <span class="thanks-mesage">

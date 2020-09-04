@@ -27,6 +27,7 @@ const sendForms = () => {
 
     $('form').each(function() {
         $(this).submit(function() {
+            console.log($(this))
             let errors = false;
             const errorMessage = $(this).find('.form-error');
             errorMessage.css("display", "none");

@@ -30,6 +30,9 @@ require_once "PHPMailer/Exception.php";
         $city = $_POST['city'];
         $quantity_days = $_POST['quantity_days'];
 
+        // anonim question
+        $question = $_POST['question'];
+
         // universal 
         $body = $_GET['body'];
         $customer_phone = $_POST['customer_phone'];
@@ -57,7 +60,7 @@ require_once "PHPMailer/Exception.php";
         }
 
         if ($childs_availible === 'on') {
-            $childs_availible = 'будут дети. Колличество: ' . $child_quantity . '. Возраст: ' . $child_age1 . ', ' . $child_age2 . ', ' . $child_age3 . '. ';
+            $childs_availible = 'будут дети. Колличество: ' . $child_quantity . '. Возраст детей: ' . $child_age1 . ', ' . $child_age2 . ', ' . $child_age3 . '. ';
         } else {
             $childs_availible = 'не будет детей. ';
         }
@@ -73,7 +76,8 @@ require_once "PHPMailer/Exception.php";
 
         $mail->From = 'sunduck248@gmail.com'; // от кого будет уходить письмо?
         $mail->FromName = 'Site LetsGo';
-        $mail->addAddress('wisod59386@faxapdf.com');     // Кому будет уходить письмо 
+        $mail->addAddress('bear-corner@yandex.ru'); 
+        $mail->addAddress('ichagovtsew@gmail.com');    // Кому будет уходить письмо 
         // //$mail->addAddress('ellen@example.com');               // Name is optional
         // //$mail->addReplyTo('info@example.com', 'Information');
         // //$mail->addCC('cc@example.com');
@@ -107,6 +111,14 @@ require_once "PHPMailer/Exception.php";
                 $mail->Body = 'Есть желающие взять авто в аренду. <b>В городе: ' . $city . '</b>. <br> На срок около ' .$quantity_days . ' суток. <br><br> Их телефон: ' .  $customer_phone . '<br> Имя: ' . $customer_name;
 
                 $mail->AltBody = 'Есть желающие взять авто в аренду. В городе: ' . $city . '. На срок около ' .$quantity_days . ' суток. Их телефон: ' .  $customer_phone . ' Имя: ' . $customer_name;
+                break;
+            
+            case 'anonim_question':
+                $mail->Subject = "Анонимный вопрос";
+
+                $mail->Body = 'Вопрос от человека с этим номером телефона:' .  $customer_phone . '<br><br> <b>Текст: </b> ' . $question;
+
+                $mail->AltBody = 'Вопрос от человека с этим номером телефона:' .  $customer_phone . 'Текст: ' . $question;
                 break;
         }
 

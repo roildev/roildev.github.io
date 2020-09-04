@@ -111,6 +111,9 @@ const calc = ()=> {
 
     accordionHeading.forEach((item, index) => {
         item.addEventListener('click', () => {
+            if (totalPrice.value !== '') {
+                totalPrice.value = '';
+            }
             accordionCollapse.forEach((item2, index2) => {
                 if (item2.classList.contains('collapse-open')) {
                     item2.classList.remove('collapse-open');
@@ -229,11 +232,63 @@ const calc = ()=> {
     
     
     calculation.addEventListener('click', () => {
-        totalPrice.value = calcPriceTaxi();
-        totalPrice.scrollIntoView({
-            block: 'center',
-            behavior: "smooth"
+        errorMessage('hide', calculation);
+        let errors = false;
+        waitTime.classList.remove('input-normal-invalid');
+        accordionCollapse.forEach(item => {
+            item.classList.remove('collapse-open');
+
+            item.querySelectorAll('.required').forEach(input => {
+                input.classList.remove('input-normal-invalid');
+                if (input.value === '' || input.value === '0') {
+                    let parent = input.closest('.panel-collapse');
+                    parent.classList.add('collapse-open');
+                    input.classList.add('input-normal-invalid');
+                    errorMessage('show', input);
+                    errors = true;
+                } 
+            });
         });
+        if (waitSwitch.checked && waitTime.value === '') {
+            errors = true;
+            let parent = waitTime.closest('.panel-collapse');
+            parent.classList.add('collapse-open');
+
+            waitTime.classList.add('input-normal-invalid');
+            errorMessage('show', waitTime);
+        }
+        if (childsSwitch.checked) {
+            if (childQuantity.querySelector('input').value === '') {
+                errors = true;
+                let parent = childQuantity.closest('.panel-collapse');
+                parent.classList.add('collapse-open');
+                
+                childQuantity.querySelector('input').classList.add('input-normal-invalid');
+                errorMessage('show', childQuantity.querySelector('input'));
+            } else {
+                const childsAgeInputs = childAge.querySelectorAll('input');
+                childsAgeInputs.forEach(input => {
+                    if (input.value === '' || input.value === '0') {
+                        errors = true;
+                        let parent = input.closest('.panel-collapse');
+                        parent.classList.add('collapse-open');
+
+                        input.classList.add('input-normal-invalid');
+                        errorMessage('show', input);
+                    }
+                });
+            }
+        }
+        
+        if (!errors) {
+            totalPrice.value = calcPriceTaxi();
+            totalPrice.scrollIntoView({
+                block: 'center',
+                behavior: "smooth"
+            });
+        }
+
+        
     });
 }
 
