@@ -40,7 +40,13 @@ const sendForms = () => {
                     errors = true;
                     if ($(this).hasClass('required')) {
                         $(this).addClass('input-normal-invalid');
-                        errorMessage.css("display", "block");
+                        
+                        const id = $(this).attr('id');
+                        errorMessage.each(function () {
+                            if (id === $(this).attr('for')) {
+                                $(this).css("display", "block");
+                            }
+                        });
                     };
                 }
             });

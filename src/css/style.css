@@ -106,8 +106,12 @@
   font-size: 12px;
 }
 .iti {
-  width: 91% !important;
-  margin-top: 5px !important;
+  width: 89% !important;
+  margin: 5px 0 !important;
+}
+.iti__country-list {
+  max-width: 350px !important;
+  color: #1f1f1f !important;
 }
 html {
   height: 100%;
@@ -576,6 +580,9 @@ footer .container .row .contacts .alicante {
 }
 footer .container .row .contacts .torrevieja {
   margin-bottom: 15px;
+}
+footer .container .row .contacts__links {
+  text-decoration: none;
 }
 footer .container .row .rent {
   display: flex;
