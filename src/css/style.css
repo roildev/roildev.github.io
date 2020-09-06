@@ -95,6 +95,51 @@
   font-weight: 600;
   text-align: center;
 }
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.contacts h4 {
+  margin: 15px;
+}
+.contacts__logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 13px;
+}
+.contacts__logos__item {
+  margin: 2px;
+  width: 20px;
+}
+.contacts__logos__item svg {
+  width: 100%;
+  height: 100%;
+}
+.contacts__logos a {
+  color: #ffffff;
+  margin-left: 4px;
+}
+.contacts a {
+  color: #ffffff;
+}
+.contacts .alicante {
+  margin-top: 15px;
+}
+.contacts .torrevieja {
+  margin-bottom: 15px;
+}
+.contacts__links {
+  text-decoration: none;
+}
+.contacts__links svg path {
+  fill: #ffffff;
+  transition: all ease-in 0.2s;
+}
+.contacts__links:hover svg path {
+  fill: #0163d2;
+}
 .form-error {
   display: none;
   color: #F53B3B;
@@ -546,44 +591,6 @@ footer {
 footer .container .row {
   display: flex;
   justify-content: space-around;
-}
-footer .container .row .contacts {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-footer .container .row .contacts h4 {
-  margin: 15px;
-}
-footer .container .row .contacts__logos {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 13px;
-}
-footer .container .row .contacts__logos__item {
-  margin: 2px;
-  width: 20px;
-}
-footer .container .row .contacts__logos__item svg {
-  width: 100%;
-  height: 100%;
-}
-footer .container .row .contacts__logos a {
-  color: #ffffff;
-  margin-left: 4px;
-}
-footer .container .row .contacts a {
-  color: #ffffff;
-}
-footer .container .row .contacts .alicante {
-  margin-top: 15px;
-}
-footer .container .row .contacts .torrevieja {
-  margin-bottom: 15px;
-}
-footer .container .row .contacts__links {
-  text-decoration: none;
 }
 footer .container .row .rent {
   display: flex;

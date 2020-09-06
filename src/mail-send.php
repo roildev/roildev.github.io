@@ -66,16 +66,16 @@ require_once "PHPMailer/Exception.php";
         }
 
         $mail->isSMTP();                                  
-        $mail->Host = 'smtp.gmail.com';  		
+        $mail->Host = 'smtp.hostinger.ru';  		
         $mail->SMTPAuth = true; 
 
-        $mail->Username = 'sunduck248@gmail.com'; // Ваш логин от почты с которой будут отправляться письма
-        $mail->Password = 'myloForDev*(#1).'; // Ваш пароль от почты с которой будут отправляться письма
+        $mail->Username = 'admin@roadinspain.com'; // Ваш логин от почты с которой будут отправляться письма
+        $mail->Password = 'roIlDev=!23!#'; // Ваш пароль от почты с которой будут отправляться письма
         $mail->SMTPSecure = 'ssl';   
-        $mail->Port = 465; 
+        $mail->Port = 587; 
 
-        $mail->From = 'sunduck248@gmail.com'; // от кого будет уходить письмо?
-        $mail->FromName = 'Site LetsGo';
+        $mail->From = 'admin@roadinspain.com'; // от кого будет уходить письмо?
+        $mail->FromName = 'Site roadinspain.com';
         $mail->addAddress('bear-corner@yandex.ru'); 
         $mail->addAddress('ichagovtsew@gmail.com');    // Кому будет уходить письмо 
         // //$mail->addAddress('ellen@example.com');               // Name is optional
